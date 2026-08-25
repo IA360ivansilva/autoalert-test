@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastiao — Your Phil Smith Kia Appraisal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0e17;color:#fff;overflow-x:hidden}
+.wrap{max-width:520px;margin:0 auto;padding-bottom:90px}
+.hero{padding:32px 22px 26px;background:linear-gradient(160deg,#0f1729 0%,#0a0e17 100%);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(198,15,15,.25),transparent 70%)}
+.badge{display:inline-block;background:rgba(198,15,15,.15);border:1px solid rgba(198,15,15,.4);color:#ff5a5a;font-size:11px;font-weight:700;letter-spacing:1.2px;padding:6px 12px;border-radius:20px;margin-bottom:16px}
+h1{font-size:31px;line-height:1.15;font-weight:800;letter-spacing:-.5px}
+h1 .nm{color:#ff5a5a}
+.sub{color:#8b96ab;font-size:15px;margin-top:12px;line-height:1.5}
+.play{margin:20px 0 4px;display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.2s}
+.play:hover{background:rgba(255,255,255,.1)}
+.play .ic{width:42px;height:42px;border-radius:50%;background:#c60f0f;display:grid;place-items:center;flex:0 0 42px;font-size:15px}
+.play .tx{font-size:14px;font-weight:600}
+.play .tx small{display:block;color:#8b96ab;font-weight:400;font-size:12px;margin-top:2px}
+.sec{padding:26px 22px}
+.lbl{font-size:11px;letter-spacing:1.6px;color:#5f6b80;font-weight:700;margin-bottom:14px}
+.card{background:#111827;border:1px solid #1f2937;border-radius:16px;overflow:hidden;margin-bottom:14px}
+.card .in{padding:16px 18px}
+.card h3{font-size:17px;font-weight:700}
+.card .meta{color:#8b96ab;font-size:13px;margin-top:5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.kv{background:rgba(255,255,255,.04);border-radius:10px;padding:11px 13px}
+.kv .k{font-size:10px;letter-spacing:.8px;color:#5f6b80;font-weight:700}
+.kv .v{font-size:18px;font-weight:800;margin-top:3px}
+.eq{background:linear-gradient(135deg,#0d3b1f,#0a2416);border:1px solid #1a7a3c}
+.eq .v{color:#4ade80}
+.apr{background:linear-gradient(150deg,#0d2137,#0a1522);border:1.5px solid #2563eb;border-radius:16px;padding:19px;margin-bottom:14px}
+.apr-h{font-size:12px;letter-spacing:1.1px;color:#60a5fa;font-weight:800;margin-bottom:11px}
+.apr p{font-size:13.5px;color:#c7d0dd;line-height:1.6}
+.apr b{color:#fff}
+.cta{position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,23,.97);backdrop-filter:blur(12px);border-top:1px solid #1f2937;padding:13px 18px;z-index:50}
+.cta .inner{max-width:520px;margin:0 auto;display:flex;gap:9px}
+.btn{flex:1;padding:15px;border-radius:12px;border:none;font-size:14.5px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.b1{background:#c60f0f;color:#fff}
+.b2{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.16);flex:0 0 118px}
+.me{display:flex;align-items:center;gap:12px;background:#111827;border:1px solid #1f2937;border-radius:14px;padding:15px;margin-top:16px}
+.me .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#c60f0f,#7a0808);display:grid;place-items:center;font-weight:800;font-size:16px;flex:0 0 46px}
+.me .nm2{font-size:14.5px;font-weight:700}
+.me .rl{font-size:12px;color:#8b96ab;margin-top:1px}
+.ftr{padding:26px 22px 34px;border-top:1px solid #1f2937;color:#5f6b80;font-size:11.5px;line-height:1.65;text-align:center}
+.ftr b{color:#8b96ab}
+audio{width:100%;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="badge">🤖 PREPARED BY IVAN'S AI ASSISTANT · AUG 24, 2026</div>
+    <h1>Sebastiao, your <span class="nm">2022 Kia Soul</span> may have equity.</h1>
+    <p class="sub">Our system estimates <b style="color:#4ade80">around $5,760 in equity</b> — but the only way to know your <b style="color:#fff">real number</b> is a quick in-person appraisal.</p>
+    <div class="play" onclick="document.getElementById('au').play()">
+      <div class="ic">▶</div>
+      <div class="tx">Hear your message — 30 sec<small>🤖 Ivan's AI Assistant · Phil Smith Kia</small></div>
+    </div>
+    <audio id="au" controls preload="none"><source src="../audios/sebastiao-4497.mp3" type="audio/mpeg"></audio>
+  </div>
+  <div class="sec">
+    <div class="lbl">WHAT YOU DRIVE TODAY</div>
+    <div class="card">
+      <div class="in">
+        <h3>2022 Kia Soul</h3>
+        <div class="meta">Owner: Sebastiao · POMPANO BEACH FL · Score: 62/100</div>
+        <div class="grid">
+          <div class="kv eq"><div class="k">EST. EQUITY</div><div class="v">$5,760</div></div>
+          <div class="kv"><div class="k">LEAD SCORE</div><div class="v">62/100</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="apr">
+      <div class="apr-h">🔎 FREE 20-MINUTE PROFESSIONAL APPRAISAL</div>
+      <p>The <b>$5,760</b> above is a market estimate from our system. Your real trade number depends on condition, options, tires, service history and today's live market — things only a person can check.</p>
+      <p style="margin-top:9px">Bring the 2022 Kia Soul in and one of our <b>certified appraisal specialists</b> will inspect it and give you the <b>strongest number the market allows</b>. Takes about 20 minutes. No obligation, no pressure — if you don't like the number, you keep your car and we shake hands.</p>
+    </div>
+    <div class="lbl">BOOK YOUR FREE APPRAISAL</div>
+    <div class="me">
+      <div class="av">SS</div>
+      <div>
+        <div class="nm2">Ivan Silva</div>
+        <div class="rl">Sales · Phil Smith Kia · (954) 860-0537 — my direct line</div>
+        <div style="font-size:11px;color:#5f6b80;margin-top:4px">This page was prepared by my AI assistant — but you'll be dealing with me in person.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ftr">
+    <b>Phil Smith Kia</b> · 4250 N Federal Hwy, Lighthouse Point, FL 33064<br>
+    Ivan Silva · (954) 860-0537<br>
+    <span style="color:#60a5fa">🤖 This page and its audio message were generated by Ivan's AI assistant using an AI-synthesized voice.</span><br><br>
+    All figures on this page are <b>estimates</b> generated from market data and are not an offer or a guaranteed value. The actual trade-in value is determined only after a physical appraisal by a Phil Smith Kia appraisal specialist and depends on the vehicle's condition, mileage, options, history and current market demand.
+  </div>
+</div>
+<div class="cta">
+  <div class="inner">
+    <a class="btn b1" href="sms:19548600537?&body=Ivan%2C%20I%20want%20the%20free%20appraisal%20-%20Sebastiao">Book My Appraisal</a>
+    <a class="btn b2" href="tel:19548600537">Call Ivan</a>
+  </div>
+</div>
+</body>
+</html>
