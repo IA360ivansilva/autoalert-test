@@ -101,6 +101,17 @@ audio{width:100%;margin-top:12px}
     <a class="btn b2" href="tel:19548600537">Call Ivan</a>
   </div>
 </div>
-<script>window.addEventListener("load",function(){var a=document.getElementById("au");if(a){var p=a.play();if(p&&p.catch){p.catch(function(){});}}});</script>
+<script>
+(function(){
+  var a=document.getElementById('au');
+  if(!a) return;
+  function tryPlay(){ var p=a.play(); if(p&&p.catch){ p.catch(function(){}); } }
+  window.addEventListener('load', tryPlay);
+  // mobile fallback: first tap anywhere starts the message
+  function onFirst(){ tryPlay(); document.removeEventListener('touchstart',onFirst); document.removeEventListener('click',onFirst); }
+  document.addEventListener('touchstart', onFirst, {once:true, passive:true});
+  document.addEventListener('click', onFirst, {once:true});
+})();
+</script>
 </body>
 </html>
