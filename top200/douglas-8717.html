@@ -3,137 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Douglas — Your Phil Smith Kia Appraisal</title>
+<title>Douglas - Phil Smith Kia Appraisal Preview</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0e17;--card:#111827;--line:#1f2937;--red:#c60f0f;--green:#16a34a;
-  --txt:#ffffff;--mut:#8b96ab;--mut2:#5f6b80;--phone:#E5E7EB;
+  --bg:#080b10;
+  --panel:#111722;
+  --panel2:#151d2b;
+  --line:#253044;
+  --text:#f8fafc;
+  --soft:#b8c2d2;
+  --muted:#7d889b;
+  --red:#c60f0f;
+  --green:#16a34a;
+  --phone:#E5E7EB;
+  --gold:#d6b25e;
 }
-html,body{background:var(--bg);color:var(--txt)}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.wrap{max-width:520px;margin:0 auto;padding:0 0 96px}
-/* PHONE always visible, color #E5E7EB all states */
+html,body{min-height:100%;background:var(--bg);color:var(--text)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
 a.phone,a.phone:link,a.phone:visited,a.phone:hover,a.phone:active{color:var(--phone);text-decoration:none}
-.hero{padding:30px 20px 22px;background:linear-gradient(160deg,#0f1729,#0a0e17);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(198,15,15,.25),transparent 70%)}
-.badge{display:inline-block;background:rgba(198,15,15,.15);border:1px solid rgba(198,15,15,.4);color:#ff5a5a;font-size:11px;font-weight:700;letter-spacing:1.2px;padding:6px 12px;border-radius:20px;margin-bottom:14px}
-h1{font-size:28px;line-height:1.18;font-weight:800;letter-spacing:-.4px}
-h1 .nm{color:#ff5a5a}
-.sub{color:var(--mut);font-size:15px;margin-top:12px;line-height:1.5}
-.eq{color:#4ade80;font-weight:700}
-/* BIG PHONE BAR in hero */
-.phonebar{margin-top:18px;display:flex;align-items:center;gap:12px;background:rgba(229,231,235,.06);border:1px solid rgba(229,231,235,.22);border-radius:14px;padding:14px 16px}
-.phonebar .ic{width:38px;height:38px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:0 0 38px;font-size:16px}
-.phonebar .tx{font-size:13px;color:var(--mut)}
-.phonebar .tx b{display:block;font-size:18px;color:var(--phone);font-weight:800;letter-spacing:.3px}
-.sec{padding:24px 20px}
-.lbl{font-size:11px;letter-spacing:1.6px;color:var(--mut2);font-weight:700;margin-bottom:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
-.card h3{font-size:18px;font-weight:800}
-.card .meta{color:var(--mut);font-size:13px;margin-top:5px}
-.card.cur{border-color:#2b6cb0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.kv{background:rgba(255,255,255,.04);border-radius:10px;padding:11px 13px}
-.kv .k{font-size:10px;letter-spacing:.8px;color:var(--mut2);font-weight:700}
-.kv .v{font-size:18px;font-weight:800;margin-top:3px}
-.kv.eq{background:linear-gradient(135deg,#0d3b1f,#0a2416);border:1px solid #1a7a3c}
-.kv.eq .v{color:#4ade80}
-/* equivalent models */
-.models .card{display:flex;justify-content:space-between;align-items:center}
-.models .price{font-size:18px;font-weight:800;color:#fff}
-.models .price small{display:block;font-size:11px;color:var(--mut2);font-weight:600}
-.models a{text-decoration:none}
-.apr{background:linear-gradient(150deg,#0d2137,#0a1522);border:1.5px solid #2563eb;border-radius:16px;padding:18px;margin-bottom:14px}
-.apr-h{font-size:12px;letter-spacing:1.1px;color:#60a5fa;font-weight:800;margin-bottom:10px}
-.apr p{font-size:13.5px;color:#c7d0dd;line-height:1.6}
-.apr b{color:#fff}
-.me{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px;margin-top:8px}
-.me .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7a0808);display:grid;place-items:center;font-weight:800;font-size:16px;flex:0 0 46px}
-.me .nm2{font-size:14.5px;font-weight:700}
-.me .rl{font-size:12px;color:var(--mut);margin-top:1px}
-.me .rl b{color:var(--phone)}
-.ftr{padding:24px 20px 30px;border-top:1px solid var(--line);color:var(--mut2);font-size:11.5px;line-height:1.65;text-align:center}
-.ftr b{color:var(--mut)}
-/* sticky CTA, green, non-intrusive */
-.cta{position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,23,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:12px 16px;z-index:50}
-.cta .inner{max-width:520px;margin:0 auto;display:flex;gap:9px}
-.btn{flex:1;padding:15px;border-radius:12px;border:none;font-size:14.5px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;color:#fff}
-.b1{background:var(--green)}
-.b2{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);flex:0 0 116px}
-.audio-note{margin-top:14px;font-size:12px;color:var(--mut2);background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.3);border-radius:10px;padding:10px 12px}
+.page{max-width:1120px;margin:0 auto;padding:18px 16px 92px}
+.hero{display:grid;gap:16px;min-height:calc(100svh - 92px);align-content:start}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.brand{color:#fff;font-weight:800}
+.phone-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid rgba(229,231,235,.24);border-radius:999px;background:rgba(229,231,235,.07);font-weight:800;white-space:nowrap}
+.hero-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#151d2a 0%,#0d121b 58%,#11090a 100%);padding:24px 18px 18px;box-shadow:0 24px 70px rgba(0,0,0,.32)}
+.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(198,15,15,.18),transparent 45%),radial-gradient(circle at 88% 12%,rgba(214,178,94,.2),transparent 28%);pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;color:#ffd9d9;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(198,15,15,.15)}
+h1{font-size:34px;line-height:1.05;letter-spacing:0;font-weight:900;max-width:760px}
+.highlight{color:#ff6262}
+.sub{margin-top:13px;color:var(--soft);font-size:16px;line-height:1.5;max-width:680px}
+.numbers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.metric{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:13px}
+.metric span{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.metric b{display:block;margin-top:3px;font-size:22px;line-height:1.1}
+.metric.equity{background:rgba(22,163,74,.14);border-color:rgba(74,222,128,.34)}
+.metric.equity b{color:#4ade80}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:13px;text-decoration:none;font-size:15px;font-weight:900;text-align:center}
+.btn.primary{background:var(--green);color:#fff;box-shadow:0 14px 32px rgba(22,163,74,.24)}
+.btn.secondary{border:1px solid rgba(229,231,235,.22);background:rgba(229,231,235,.08);color:var(--phone)}
+.audio-card{position:relative;z-index:1;margin-top:16px;border:1px solid rgba(214,178,94,.36);border-radius:18px;background:rgba(8,11,16,.72);padding:15px}
+.audio-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.audio-title{font-size:14px;font-weight:900}
+.audio-state{color:var(--gold);font-size:12px;font-weight:800;white-space:nowrap}
+.play-button{width:100%;min-height:48px;border:0;border-radius:12px;background:#fff;color:#0b111a;font-size:15px;font-weight:900;cursor:pointer;margin-bottom:11px}
+audio{display:block;width:100%;height:42px}
+.quick-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.panel{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px}
+.label{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.vehicle{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.vehicle h2{font-size:20px;line-height:1.15}
+.tag{color:#0b111a;background:var(--gold);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;white-space:nowrap}
+.meta{margin-top:7px;color:var(--soft);font-size:13px;line-height:1.45}
+.models{display:grid;gap:9px}
+.model{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 12px;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.04);text-decoration:none}
+.model strong{display:block;font-size:14px}
+.model span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.model b{color:#fff;font-size:13px;white-space:nowrap}
+.trust{color:var(--soft);font-size:13px;line-height:1.5}
+.rep{display:flex;align-items:center;gap:12px;margin-top:13px}
+.avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--red),#6f0707);font-weight:900}
+.rep b{display:block}
+.rep span{display:block;color:var(--soft);font-size:12px;margin-top:2px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 14px;background:rgba(8,11,16,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+.sticky-inner{max-width:520px;margin:0 auto;display:grid;grid-template-columns:1fr 112px;gap:9px}
+.footer{padding:20px 4px;color:var(--muted);font-size:11px;line-height:1.55;text-align:center}
+@media (min-width:780px){
+  .page{padding:28px 28px 34px}
+  .hero{min-height:auto;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);align-items:start}
+  .hero-card{grid-row:1 / span 2;padding:34px}
+  h1{font-size:52px}
+  .actions{grid-template-columns:1fr 170px;max-width:520px}
+  .quick-grid{align-self:stretch}
+  .sticky{display:none}
+  .footer{text-align:left;grid-column:1 / -1}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="hero">
-    <div class="badge">PERSONALIZED FOR DOUGLAS · PHIL SMITH KIA</div>
-    <h1>Douglas, your <span class="nm">2024 Kia Telluride</span> may have real equity.</h1>
-    <p class="sub">Our system estimates <span class="eq">around $12,440 in equity</span> — but the only way to know your <span class="eq">real number</span> is a quick in-person appraisal with me.</p>
-    <div class="phonebar">
-      <div class="ic">📞</div>
-      <div class="tx">Talk to Ivan directly<a class="phone" href="tel:19548600537"> (954) 860-0537</a></div>
-    </div>
-  </div>
+<main class="page">
+  <section class="hero" aria-label="Douglas appraisal preview">
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="topline">
+          <span class="brand">Phil Smith Kia</span>
+          <a class="phone phone-pill" href="tel:19548600537">(954) 860-0537</a>
+        </div>
+        <div class="eyebrow"><span class="dot"></span>Personal preview for Douglas</div>
+        <h1>Your <span class="highlight">2024 Kia Telluride</span> may be in a strong trade position.</h1>
+        <p class="sub">Douglas, I made this quick preview because the system shows an estimated <strong>$12,440 in equity</strong>. A 20-minute appraisal gives you the real number.</p>
 
-  <div class="sec">
-    <div class="lbl">WHAT YOU DRIVE TODAY</div>
-    <div class="card cur">
-      <h3>2024 Kia Telluride</h3>
-      <div class="meta">Owner: Douglas · COCONUT CREEK, FL · Score 79/100 · ~27,100 mi</div>
-      <div class="grid">
-        <div class="kv eq"><div class="k">EST. EQUITY</div><div class="v">$12,440</div></div>
-        <div class="kv"><div class="k">CURRENT PAYMENT</div><div class="v">$903/mo</div></div>
+        <div class="numbers" aria-label="Vehicle summary">
+          <div class="metric equity"><span>Estimated equity</span><b>$12,440</b></div>
+          <div class="metric"><span>Current payment</span><b>$903/mo</b></div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="sms:19548600537?&body=Ivan%2C%20I%20want%20the%20free%20appraisal%20-%20Douglas">Book My Appraisal</a>
+          <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+        </div>
+
+        <div class="audio-card" data-qa="audio-visible">
+          <div class="audio-head">
+            <div class="audio-title">Personal audio from Ivan</div>
+            <div id="audioState" class="audio-state">Ready</div>
+          </div>
+          <button id="playMessage" class="play-button" type="button">Play Douglas' message</button>
+          <audio id="personalAudio" controls preload="auto" playsinline>
+            <source src="../audios/douglas-8717-short.mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
     </div>
 
-    <div class="lbl">UPGRADE OPTIONS AVAILABLE NOW</div>
-    <div class="models">
-      <a class="card" href="https://www.philsmithkia.com/search/new-2027-kia-telluride-lighthouse-point-fl/?cy=33064&md=8496&tp=new" target="_blank" rel="noopener">
-        <div><h3>2027 Kia Telluride</h3><div class="meta">New · EX from $47,379 · 3.99% APR*</div></div>
-        <div class="price">View<small>in stock</small></div>
-      </a>
-      <a class="card" href="https://www.philsmithkia.com/search/new-2026-kia-sorento-lighthouse-point-fl/?cy=33064&md=173&tp=new" target="_blank" rel="noopener">
-        <div><h3>2026 Kia Sorento</h3><div class="meta">New · from ~$37,768 · $3,000 Customer Cash*</div></div>
-        <div class="price">View<small>in stock</small></div>
-      </a>
-      <a class="card" href="https://www.philsmithkia.com/search/new-2026-kia-sportage-lighthouse-point-fl/?cy=33064&tp=new" target="_blank" rel="noopener">
-        <div><h3>2026 Kia Sportage</h3><div class="meta">New · EX from ~$31,339 · 0% APR*</div></div>
-        <div class="price">View<small>in stock</small></div>
-      </a>
+    <div class="quick-grid">
+      <section class="panel">
+        <div class="label">Current vehicle</div>
+        <div class="vehicle">
+          <div>
+            <h2>2024 Kia Telluride</h2>
+            <p class="meta">Coconut Creek, FL · approx. 27,100 mi · score 79/100</p>
+          </div>
+          <span class="tag">Appraisal ready</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="label">Options to compare</div>
+        <div class="models">
+          <a class="model" href="https://www.philsmithkia.com/search/new-2027-kia-telluride-lighthouse-point-fl/?cy=33064&md=8496&tp=new" target="_blank" rel="noopener">
+            <span><strong>2027 Kia Telluride</strong><span>New Telluride inventory</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sorento-lighthouse-point-fl/?cy=33064&md=173&tp=new" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sorento</strong><span>3-row SUV alternative</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sportage-lighthouse-point-fl/?cy=33064&tp=new" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sportage</strong><span>Lower-payment option</span></span><b>View</b>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="label">Next step</div>
+        <p class="trust">Bring the Telluride in and we will inspect condition, options, tires, history and current market demand. No pressure. If the number is not right, you keep your car.</p>
+        <div class="rep">
+          <div class="avatar">IS</div>
+          <div><b>Ivan Silva</b><span>Sales · Phil Smith Kia · <a class="phone" href="tel:19548600537">(954) 860-0537</a></span></div>
+        </div>
+      </section>
     </div>
 
-    <div class="apr">
-      <div class="apr-h">🔎 FREE 20-MINUTE PROFESSIONAL APPRAISAL</div>
-      <p>The <b>$12,440</b> above is a market estimate. Your real trade number depends on condition, options, tires, service history and today's live market — things only a person can check.</p>
-      <p style="margin-top:9px">Bring the 2024 Kia Telluride in and one of our <b>certified appraisal specialists</b> will inspect it and give you the <b>strongest number the market allows</b>. Takes about 20 minutes. No obligation — if you don't like the number, you keep your car and we shake hands.</p>
-    </div>
+    <p class="footer">All figures are estimates from market data and are not an offer or guaranteed value. Actual trade value is determined only after a physical appraisal and depends on vehicle condition, mileage, options, history and current demand. This preview and audio are for Ivan's review before any customer send.</p>
+  </section>
+</main>
 
-    <div class="audio-note">
-      ⚠️ Voice message temporarily omitted. The earlier robotic audio was removed per your request; a natural cloned voice (25–40s) will be added once the approved Ivan clone asset is generated. Page is fully functional without it.
-    </div>
-
-    <div class="lbl">YOUR REP</div>
-    <div class="me">
-      <div class="av">IS</div>
-      <div>
-        <div class="nm2">Ivan Silva</div>
-        <div class="rl">Sales · Phil Smith Kia · <b>(954) 860-0537</b> — my direct line</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ftr">
-    <b>Phil Smith Kia</b> · 4250 N Federal Hwy, Lighthouse Point, FL 33064<br>
-    Ivan Silva · <a class="phone" href="tel:19548600537">(954) 860-0537</a><br><br>
-    All figures are <b>estimates</b> from market data, not an offer or guaranteed value. Actual trade-in value is set only after a physical appraisal and depends on condition, mileage, options, history and current demand. *APR/incentives expire 08/31/2026; buyer must qualify.
+<div class="sticky" aria-label="Quick actions">
+  <div class="sticky-inner">
+    <a class="btn primary" href="sms:19548600537?&body=Ivan%2C%20I%20want%20the%20free%20appraisal%20-%20Douglas">Book My Appraisal</a>
+    <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
   </div>
 </div>
-<div class="cta">
-  <div class="inner">
-    <a class="btn b1" href="sms:19548600537?&body=Ivan%2C%20I%20want%20the%20free%20appraisal%20-%20Douglas">Book My Appraisal</a>
-    <a class="btn b2" href="tel:19548600537">Call Ivan</a>
-  </div>
-</div>
+
+<script>
+(function(){
+  var audio = document.getElementById('personalAudio');
+  var button = document.getElementById('playMessage');
+  var state = document.getElementById('audioState');
+  if(!audio || !button || !state) return;
+
+  function setState(text){ state.textContent = text; }
+  function playMessage(){
+    audio.muted = false;
+    var attempt = audio.play();
+    if(attempt && attempt.then){
+      attempt.then(function(){ setState('Playing'); })
+        .catch(function(){ setState('Tap to play'); });
+    }
+  }
+
+  button.addEventListener('click', playMessage);
+  audio.addEventListener('play', function(){ setState('Playing'); });
+  audio.addEventListener('pause', function(){ if(!audio.ended) setState('Paused'); });
+  audio.addEventListener('ended', function(){ setState('Replay'); });
+  window.addEventListener('load', function(){
+    var attempt = audio.play();
+    if(attempt && attempt.catch){
+      attempt.then(function(){ setState('Playing'); })
+        .catch(function(){ setState('Tap to play'); });
+    }
+  });
+})();
+</script>
 </body>
 </html>
