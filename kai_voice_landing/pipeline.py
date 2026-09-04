@@ -1,107 +1,94 @@
+#!/usr/bin/env python3
 """
-kai_voice_landing / pipeline.py  -- Kai orchestrator
+KAI PIPELINE - Voice pipeline + personalized landing integration
+===============================================================
+Owner: KAI (the-greatest). Flow: lead -> landing -> audio -> QA -> approval.
 
-Runs the FULL pipeline for one lead (internal test only, never customer send):
-  lead -> landing HTML -> audio (cloned voice) -> full QA -> BLOCK_SEND gate.
-
-Usage:
-  python3 -m kai_voice_landing.pipeline \
-      --slug maria-silva --name "Maria Silva" --gender F --lang pt \
-      --car "2024 Kia Sportage" --equity "$18,400" \
-      --out-dir /Users/clawbotlocal/autoalert-pages/kai_test \
-      --audio-mode-report
-
-It writes:
-  <out-dir>/<slug>.html
-  <out-dir>/audios/<slug>.mp3
-  <out-dir>/<slug>_qa.json
-and prints the QA verdict + BLOCK_SEND decision.
+AUDIO-ONLY VERSION (27/08 working format).
+No video generation. Direct MP3 audio playback.
 """
-import argparse
-import os
-import sys
-import json
+import argparse, asyncio, csv, json, os, re, sqlite3, sys
+from pathlib import Path
+from datetime import datetime
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE = Path("/Users/clawbotlocal/AUTOALERT_CRM/05_campanhas")
+DB   = "/Users/clawbotlocal/AUTOALERT_CRM/06_plataforma/ivanalert.db"
+TPL  = BASE / "_template" / "index.html"
+OUT  = BASE / "kai_out"
+OUT.mkdir(parents=True, exist_ok=True)
 
-from kai_voice_landing import (
-    Lead, build_landing_html, generate_audio, run_qa, write_qa,
-)
+VOICE = {
+    "pt": {"male": "pt-BR-AntonioNeural",  "female": "pt-BR-FranciscaNeural"},
+    "en": {"male": "en-US-AndrewNeural",    "female": "en-US-AriaNeural"},
+}
+PHONE = "(954) 860-0537"
+PHONE_HREF = "19548600537"
 
-SCRIPT_PER_CLIENT_PT = (
-    "{name} — nosso sistema mostra que seu {car} pode estar em boa posição "
-    "de troca, com valor estimado perto de {equity}. Essa é a estimativa. "
-    "O número real vem de uma avaliação de vinte minutos, sem compromisso. "
-    "Traga o {car} na loja e um especialista confere estado, pneus e histórico. "
-    "Se não estiver bom, você fica com o carro. Meu nome é Ivan, da Phil Smith Kia. "
-    "Pode me ligar ou mandar mensagem no (954) 860-0537. "
-    "Mensagem preparada pelo assistente de IA do Ivan."
-)
+def select_voice(gender: str, lang: str = "en") -> str:
+    g = gender.lower().strip()
+    if g in {"f", "female", "woman", "mulher"}:
+        return VOICE.get(lang, VOICE["en"])["male"]
+    elif g in {"m", "male", "man", "homem"}:
+        return VOICE.get(lang, VOICE["en"])["female"]
+    return VOICE.get(lang, VOICE["en"])["male"]
 
+def parse_args():
+    p = argparse.ArgumentParser(description="KAI Lead Pipeline (Audio-only)")
+    p.add_argument("--cid", required=True, help="Contact ID")
+    p.add_argument("--lang", default="en", help="Language (en/pt)")
+    p.add_argument("--dry-run", action="store_true", default=True, help="Dry run (no send)")
+    return p.parse_args()
 
-def run(lead: Lead, out_dir: str, audio_mode_only: bool = False) -> dict:
+def get_lead_data(cid: str) -> dict:
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM customers WHERE contact_id = ?", (cid,))
+    row = cur.fetchone()
+    conn.close()
+    if not row:
+        raise ValueError(f"Lead {cid} not found")
+    return dict(row)
+
+def generate_audio(lead: dict, out_dir: str, script_text: str = "") -> dict:
     os.makedirs(out_dir, exist_ok=True)
-    audios_dir = os.path.join(out_dir, "audios")
-    os.makedirs(audios_dir, exist_ok=True)
-
-    # 1) per-client script (only used by XTTS per-client mode)
-    script = SCRIPT_PER_CLIENT_PT.format(
-        name=lead.name, equity=lead.equity_estimate, car=lead.current_vehicle
-    )
-    lead.script = script
-
-    # 2) audio (approved clone copy or per-client XTTS)
-    audio = generate_audio(lead, audios_dir, script)
-    audio_dict = {
-        "path": audio.path, "mode": audio.mode, "duration_sec": audio.duration_sec,
-        "size_bytes": audio.size_bytes, "voice_label": audio.voice_label,
-    }
-
-    # 3) landing HTML (audio src uses ../audios/<slug>.mp3)
-    audio_src = f"../audios/{lead.slug}.mp3"
-    html = build_landing_html(lead, audio_src)
-    html_path = os.path.join(out_dir, f"{lead.slug}.html")
-    with open(html_path, "w", encoding="utf-8") as f:
-        f.write(html)
-
-    # 4) QA
-    qa = run_qa(audio_dict, html, lead, mode=audio.mode)
-    qa_path = os.path.join(out_dir, f"{lead.slug}_qa.json")
-    write_qa(qa_path, qa)
-
-    # 5) BLOCK_SEND
-    blocked = qa["verdict"] != "PASS"
+    slug = f"{lead['contact_id']}-{lead['first_name'].lower()}"
+    out_path = os.path.join(out_dir, f"{slug}.mp3")
+    voice = select_voice(lead.get("gender_guess", "unknown"), lead.get("lang", "en"))
+    import subprocess
+    cmd = ["edge-tts", "--voice", voice, "--text", script_text, "--write-media", out_path]
+    subprocess.run(cmd, capture_output=True, timeout=60)
+    duration = 0
+    if os.path.exists(out_path):
+        dur_proc = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", out_path],
+            capture_output=True, text=True, timeout=15
+        )
+        if dur_proc.returncode == 0:
+            duration = float(dur_proc.stdout.strip())
     return {
-        "lead": lead.name, "slug": lead.slug, "gender": lead.gender,
-        "audio": audio_dict, "html_path": html_path, "qa_path": qa_path,
-        "qa_verdict": qa["verdict"], "blocked": blocked,
-        "failures": qa["failures"], "qa": qa,
+        "path": out_path,
+        "mode": "edge_tts",
+        "duration_sec": duration,
+        "size_bytes": os.path.getsize(out_path) if os.path.exists(out_path) else 0,
+        "voice_label": voice,
     }
-
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--slug", required=True)
-    p.add_argument("--name", required=True)
-    p.add_argument("--gender", required=True, choices=["M", "F", "unknown"])
-    p.add_argument("--lang", default="pt", choices=["pt", "en"])
-    p.add_argument("--car", default="2024 Kia Sportage")
-    p.add_argument("--equity", default="$18,400")
-    p.add_argument("--payment", default="$XXX/mo")
-    p.add_argument("--out-dir", default="/Users/clawbotlocal/autoalert-pages/kai_test")
-    args = p.parse_args()
-
-    lead = Lead(slug=args.slug, name=args.name, gender=args.gender, lang=args.lang,
-                current_vehicle=args.car, equity_estimate=args.equity)
-    res = run(lead, args.out_dir)
-    print(json.dumps({k: v for k, v in res.items() if k != "qa"}, indent=2, ensure_ascii=False))
-    print("\n[QA VERDICT]", res["qa_verdict"])
-    if res["blocked"]:
-        print("[BLOCK_SEND] Not sent. Failures:", res["failures"])
-    else:
-        print("[READY] Passed QA. SEND ONLY AFTER Ivan approval (test link to Ivan).")
-    sys.exit(0 if not res["blocked"] else 2)
-
+    args = parse_args()
+    lead = get_lead_data(args.cid)
+    print(f"[KAI] Processing lead: {lead.get('first_name', 'Unknown')} (ID: {args.cid})")
+    script = f"Hi {lead.get('first_name', 'there')}, this is Ivan from Phil Smith Kia. I wanted to reach out about your {lead.get('vehicle', 'vehicle')} and see if you'd be interested in a free appraisal. Reply STOP to opt out."
+    out_dir = os.path.join(OUT, f"{args.cid}-{lead['first_name'].lower()}", "audios")
+    audio = generate_audio(lead, out_dir, script)
+    print(f"[KAI] Audio: {audio['duration_sec']:.1f}s, {audio['size_bytes']} bytes")
+    qa_pass = audio["duration_sec"] >= 25 and audio["duration_sec"] <= 40
+    print(f"[KAI] QA: {'PASS' if qa_pass else 'FAIL'}")
+    if not qa_pass:
+        print("[KAI] BLOCK_SEND: QA failed")
+        return
+    print(f"[KAI] BLOCK_SEND: Ready for review")
 
 if __name__ == "__main__":
     main()

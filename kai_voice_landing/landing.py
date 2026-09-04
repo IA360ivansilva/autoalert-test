@@ -3,7 +3,9 @@ kai_voice_landing / landing.py
 Build a premium mobile-first personalized automotive landing page for a Lead.
 Mirrors the approved autoalert-test structure (dark theme, phone #E5E7EB all
 states, green #16a34a CTA, avatar 'IS', equivalent models, AI disclosure).
+Supports audio and optional personalized avatar video preview with kai-player.js.
 """
+from typing import Optional
 from .registry import (
     PHONE_COLOR, CTA_GREEN, FORBIDDEN_PHONE_BLUES, AVATAR_INITIALS,
     IVAN_PHONE_DISPLAY, IVAN_PHONE_TEL, AI_DISCLOSURE, AI_DISCLOSURE_PT,
@@ -52,8 +54,9 @@ h1{{font-size:34px;line-height:1.05;font-weight:900;max-width:760px}}
 .audio-head{{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}}
 .audio-title{{font-size:14px;font-weight:900}}
 .audio-state{{color:var(--gold);font-size:12px;font-weight:800;white-space:nowrap}}
-.play-button{{width:100%;min-height:48px;border:0;border-radius:12px;background:#fff;color:#0b111a;font-size:15px;font-weight:900;cursor:pointer;margin-bottom:11px}}
+.play-button{{width:100%;min-height:48px;border:0;border-radius:12px;background:#fff;color:#0b111a;font-size:15px;font-weight:900;cursor:pointer;margin-top:11px}}
 audio{{display:block;width:100%;height:42px}}
+video{{display:block;width:100%;max-height:280px;border-radius:12px;background:#000;object-fit:cover;margin-bottom:10px}}
 .quick-grid{{display:grid;gap:12px}}
 .panel{{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px}}
 .label{{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}}
@@ -108,13 +111,11 @@ audio{{display:block;width:100%;height:42px}}
         </div>
         <div class="audio-card" data-qa="audio-visible">
           <div class="audio-head">
-            <div class="audio-title">{audio_title}</div>
-            <div id="audioState" class="audio-state">Ready</div>
+            <div class="audio-title">{media_title}</div>
+            <div id="audioState" data-kai-state class="audio-state">Ready</div>
           </div>
-          <button id="playMessage" class="play-button" type="button">{play_label}</button>
-          <audio id="personalAudio" controls preload="auto" playsinline>
-            <source src="{audio_src}" type="audio/mpeg">
-          </audio>
+          {media_element}
+          <button id="playMessage" data-kai-play class="play-button" type="button">{play_label}</button>
         </div>
       </div>
     </div>
@@ -153,21 +154,7 @@ audio{{display:block;width:100%;height:42px}}
     <a class="btn secondary phone" href="tel:{phone_tel}">Call Ivan</a>
   </div>
 </div>
-<script>
-(function(){{
-  var audio=document.getElementById('personalAudio');
-  var button=document.getElementById('playMessage');
-  var state=document.getElementById('audioState');
-  if(!audio||!button||!state)return;
-  function setState(t){{state.textContent=t;}}
-  function playMessage(){{audio.muted=false;var a=audio.play();if(a&&a.then){{a.then(function(){{setState('Playing');}}).catch(function(){{setState('Tap to play');}});}}}}
-  button.addEventListener('click',playMessage);
-  audio.addEventListener('play',function(){{setState('Playing');}});
-  audio.addEventListener('pause',function(){{if(!audio.ended)setState('Paused');}});
-  audio.addEventListener('ended',function(){{setState('Replay');}});
-  window.addEventListener('load',function(){{var a=audio.play();if(a&&a.catch){{a.then(function(){{setState('Playing');}}).catch(function(){{setState('Tap to play');}});}});
-}})();
-</script>
+<script src="../assets/kai-player.js" defer></script>
 </body>
 </html>
 """
@@ -183,8 +170,8 @@ I18N = {
         "cur_label": "Veículo atual",
         "opt_label": "Opções para comparar",
         "next_label": "Próximo passo",
-        "audio_title": "Mensagem de áudio pessoal",
-        "play_label": "Ouvir mensagem de {name}",
+        "media_title": "Mensagem pessoal do Ivan",
+        "play_label": "▶︎ Ouvir mensagem de {name}",
         "trust": "Traga o {car} e inspecionamos estado, opcionais, pneus, histórico e demanda atual do mercado. Sem pressão. Se o número não estiver bom, você fica com o carro.",
         "footer": "Todos os valores são estimativas de dados de mercado e não são oferta nem valor garantido. O valor real de troca é definido apenas após avaliação física e depende de estado, quilometragem, opcionais, histório e demanda. {disclosure}",
     },
@@ -197,15 +184,14 @@ I18N = {
         "cur_label": "Current vehicle",
         "opt_label": "Options to compare",
         "next_label": "Next step",
-        "audio_title": "Personal audio message",
-        "play_label": "Play {name}'s message",
+        "media_title": "Personal message from Ivan",
+        "play_label": "▶︎ Play {name}’s message",
         "trust": "Bring the {car} in and we will inspect condition, options, tires, history and current market demand. No pressure. If the number is not right, you keep your car.",
         "footer": "All figures are estimates from market data and are not an offer or guaranteed value. Actual trade value is determined only after a physical appraisal and depends on vehicle condition, mileage, options, history and current demand. {disclosure}",
     },
 }
 
-
-def build_landing_html(lead, audio_src: str, payment: str = "$XXX/mo", cur_meta: str = "Lighthouse Point, FL") -> str:
+def build_landing_html(lead, audio_src: str, video_src: Optional[str] = None, poster_src: Optional[str] = None, payment: str = "$XXX/mo", cur_meta: str = "Lighthouse Point, FL") -> str:
     t = I18N.get(lead.lang, I18N["en"])
     models_html = "\n".join(
         f'          <a class="model" href="{m["url"]}" target="_blank" rel="noopener">\n'
@@ -213,6 +199,15 @@ def build_landing_html(lead, audio_src: str, payment: str = "$XXX/mo", cur_meta:
         f'          </a>' for m in lead.equivalent_models
     )
     sms_body = lead.sms_body.replace(" ", "%20")
+
+    if video_src:
+        poster_attr = f' poster="{poster_src}"' if poster_src else ""
+        media_element = f'<video id="personalMedia" data-kai-audio controls preload="auto" playsinline{poster_attr}><source src="{video_src}" type="video/mp4"></video>'
+        play_label = f"▶︎ Watch {lead.name}’s video" if lead.lang == "en" else f"▶︎ Assistir vídeo de {lead.name}"
+    else:
+        media_element = f'<audio id="personalMedia" data-kai-audio controls preload="auto" playsinline><source src="{audio_src}" type="audio/mpeg"></audio>'
+        play_label = t["play_label"].format(name=lead.name)
+
     return TPL.format(
         lang=lead.lang,
         name=lead.name,
@@ -220,7 +215,7 @@ def build_landing_html(lead, audio_src: str, payment: str = "$XXX/mo", cur_meta:
         phone_tel=lead.phone_tel,
         cta=lead.cta,
         sms_body=sms_body,
-        audio_src=audio_src,
+        media_element=media_element,
         avatar=AVATAR_INITIALS,
         eyebrow=t["eyebrow"].format(name=lead.name),
         h1=t["h1"].format(car=lead.current_vehicle),
@@ -233,8 +228,8 @@ def build_landing_html(lead, audio_src: str, payment: str = "$XXX/mo", cur_meta:
         cur_label=t["cur_label"],
         opt_label=t["opt_label"],
         next_label=t["next_label"],
-        audio_title=t["audio_title"],
-        play_label=t["play_label"].format(name=lead.name),
+        media_title=t["media_title"],
+        play_label=play_label,
         trust=t["trust"].format(car=lead.current_vehicle),
         cur_meta=cur_meta,
         footer=t["footer"].format(disclosure=AI_DISCLOSURE_PT if lead.lang == "pt" else AI_DISCLOSURE),

@@ -1,0 +1,127 @@
+{
+  "verdict": "PASS",
+  "passed_all": true,
+  "failures": [],
+  "audio_mode": "chatterbox_turbo_200wpm",
+  "results": [
+    {
+      "check": "audio_size",
+      "passed": true,
+      "detail": "size=412629 bytes"
+    },
+    {
+      "check": "voice_not_forbidden",
+      "passed": true,
+      "detail": "voice='Ivan (male)' mode=chatterbox_turbo_200wpm"
+    },
+    {
+      "check": "voice_gender_map",
+      "passed": true,
+      "detail": "gender=F expected voice containing 'ivan', got 'Ivan (male)'"
+    },
+    {
+      "check": "audio_duration_25_40",
+      "passed": true,
+      "detail": "per-client duration=38.65s (required 25-40s)"
+    },
+    {
+      "check": "audio_volume",
+      "passed": true,
+      "detail": "mean_volume=0.0646"
+    },
+    {
+      "check": "video_exists",
+      "passed": true,
+      "detail": "path=/Users/clawbotlocal/autoalert-pages/kai_test/videos/325396588-patricia-nessler.mp4"
+    },
+    {
+      "check": "video_size",
+      "passed": true,
+      "detail": "size=68483196 bytes"
+    },
+    {
+      "check": "video_audio_sync",
+      "passed": true,
+      "detail": "vdur=38.7s vs adur=38.7s"
+    },
+    {
+      "check": "video_poster_exists",
+      "passed": true,
+      "detail": "/Users/clawbotlocal/autoalert-pages/kai_test/videos/325396588-patricia-nessler_poster.jpg"
+    },
+    {
+      "check": "phone_visible",
+      "passed": true,
+      "detail": "tel:19548600537 + (954) 860-0537 present"
+    },
+    {
+      "check": "phone_color_e5e7eb",
+      "passed": true,
+      "detail": "phone color #E5E7EB, no forbidden blue"
+    },
+    {
+      "check": "cta_green",
+      "passed": true,
+      "detail": "CTA green #16a34a present"
+    },
+    {
+      "check": "cta_present",
+      "passed": true,
+      "detail": "CTA 'Book My Appraisal' present"
+    },
+    {
+      "check": "avatar_is",
+      "passed": true,
+      "detail": "avatar initials 'IS'"
+    },
+    {
+      "check": "ai_disclosure",
+      "passed": true,
+      "detail": "AI disclosure present"
+    },
+    {
+      "check": "kai_player_script",
+      "passed": true,
+      "detail": "reliable kai-player.js referenced"
+    },
+    {
+      "check": "no_credit_guarantee",
+      "passed": true,
+      "detail": "No illegal credit/approval promises"
+    },
+    {
+      "check": "sms_opt_out_present",
+      "passed": true,
+      "detail": "TCPA 'Reply STOP' opt-out present"
+    },
+    {
+      "check": "sms_sender_identified",
+      "passed": true,
+      "detail": "Sender identified as Ivan at Phil Smith Kia"
+    },
+    {
+      "check": "sms_no_misleading_promises",
+      "passed": true,
+      "detail": "No misleading claims"
+    },
+    {
+      "check": "email_can_spam_opt_out",
+      "passed": true,
+      "detail": "CAN-SPAM unsubscribe present"
+    },
+    {
+      "check": "email_physical_address",
+      "passed": true,
+      "detail": "Dealership physical address present"
+    }
+  ],
+  "meta": {
+    "customer_name": "Patricia Nessler",
+    "customer_gender": "F",
+    "lang": "en",
+    "voice_label": "Ivan (male)",
+    "duration_sec": 38.65,
+    "started_at": "2026-09-04T18:08:24.891442+00:00",
+    "finished_at": "2026-09-04T18:08:24.969972+00:00"
+  }
+}

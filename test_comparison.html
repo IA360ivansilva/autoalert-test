@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kai Audio Test - 27/08 vs 04/09</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0a0e17;color:#fff;padding:20px}
+h1{font-size:24px;margin-bottom:20px}
+.test{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:20px;margin-bottom:20px}
+h2{font-size:18px;color:#4ade80;margin-bottom:10px}
+audio{width:100%;margin-top:10px}
+.mp3-link{display:inline-block;margin-top:10px;color:#60a5fa;text-decoration:none}
+.mp3-link:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<h1>Kai Audio Test: 27/08 vs 04/09</h1>
+
+<div class="test">
+<h2>27/08 - OLD FORMAT (WORKING)</h2>
+<p>File: audios/patricia-6588.mp3 (edge-tts)</p>
+<audio controls autoplay playsinline preload="auto">
+<source src="audios/patricia-6588.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="test">
+<h2>04/09 - NEW FORMAT (BROKEN?)</h2>
+<p>File: kai_test/audios/325396588-patricia-nessler.mp3 (Chatterbox?)</p>
+<audio controls autoplay playsinline preload="auto">
+<source src="kai_test/audios/325396588-patricia-nessler.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="test">
+<h2>Direct MP3 Downloads</h2>
+<a class="mp3-link" href="audios/patricia-6588.mp3" download>Download OLD MP3</a><br><br>
+<a class="mp3-link" href="kai_test/audios/325396588-patricia-nessler.mp3" download>Download NEW MP3</a>
+</div>
+
+</body>
+</html>
