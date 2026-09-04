@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Preview - Douglas Telluride</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080a0f;--ink:#f8fafc;--soft:#cbd5e1;--muted:#94a3b8;
+  --line:rgba(226,232,240,.18);--green:#16a34a;--red:#dc2626;--gold:#d6b25e;
+  --phone:#E5E7EB;--panel:#111827;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--ink)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a.phone,a.phone:link,a.phone:visited,a.phone:hover,a.phone:active{color:var(--phone);text-decoration:none}
+.wrap{width:min(1120px,100%);margin:0 auto;padding:16px 14px 88px}
+.hero{display:grid;gap:14px;min-height:calc(100svh - 88px);align-content:start}
+.stage{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(140deg,#161c28 0%,#0e121b 48%,#17110a 100%);box-shadow:0 30px 90px rgba(0,0,0,.42)}
+.stage-inner{padding:20px 16px}
+.nav{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:20px;color:var(--soft);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.phone-pill{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 12px;border:1px solid rgba(229,231,235,.24);border-radius:999px;background:rgba(229,231,235,.08);white-space:nowrap;font-size:13px}
+.preview{display:inline-flex;align-items:center;gap:8px;color:#ffd7d7;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.preview:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(220,38,38,.18)}
+h1{margin-top:10px;font-size:34px;line-height:1.04;font-weight:950;letter-spacing:0}
+.accent{color:#ff5a5f}
+.sub{margin-top:12px;color:var(--soft);font-size:16px;line-height:1.45;max-width:720px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.metric{min-height:86px;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;background:rgba(255,255,255,.06)}
+.metric span{display:block;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.metric b{display:block;margin-top:5px;font-size:21px;line-height:1.08}
+.metric.good{background:rgba(22,163,74,.14);border-color:rgba(74,222,128,.34)}
+.metric.good b{color:#4ade80}
+.actions{display:grid;gap:10px;margin-top:18px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:12px;text-decoration:none;font-size:15px;font-weight:950;text-align:center}
+.btn.primary{background:var(--green);color:#fff;box-shadow:0 14px 34px rgba(22,163,74,.28)}
+.btn.secondary{border:1px solid rgba(229,231,235,.23);background:rgba(229,231,235,.08);color:var(--phone)}
+.audio-box{margin-top:16px;border:1px solid rgba(214,178,94,.38);border-radius:16px;padding:14px;background:rgba(0,0,0,.22)}
+.audio-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.audio-title{font-size:14px;font-weight:950}
+.audio-meta{color:var(--gold);font-size:12px;font-weight:900}
+.play{width:100%;min-height:48px;border:0;border-radius:12px;background:#fff;color:#111827;font-size:15px;font-weight:950;cursor:pointer;margin-bottom:10px}
+audio{display:block;width:100%;height:42px}
+.grid{display:grid;gap:12px}
+.panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:15px}
+.label{margin-bottom:9px;color:var(--muted);font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.12em}
+.vehicle-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+h2{font-size:19px;line-height:1.16}
+.tag{padding:7px 10px;border-radius:999px;background:var(--gold);color:#111827;font-size:12px;font-weight:950;white-space:nowrap}
+.copy{color:var(--soft);font-size:13px;line-height:1.5}
+.models{display:grid;gap:9px}
+.model{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.04);text-decoration:none}
+.model strong{display:block;font-size:14px}
+.model span{display:block;margin-top:2px;color:var(--muted);font-size:12px}
+.model b{font-size:13px;white-space:nowrap}
+.rep{display:flex;align-items:center;gap:12px;margin-top:12px}
+.avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green),#0d6b32);font-weight:950}
+.rep span{display:block;margin-top:2px;color:var(--soft);font-size:12px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:12px 14px;background:rgba(8,10,15,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+.sticky-inner{display:grid;grid-template-columns:1fr 116px;gap:9px;max-width:520px;margin:0 auto}
+.foot{margin-top:12px;color:var(--muted);font-size:11px;line-height:1.55;text-align:center}
+@media (min-width:820px){
+  .wrap{padding:28px}
+  .hero{min-height:auto;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr)}
+  .stage{grid-row:1 / span 2}
+  .stage-inner{padding:32px}
+  h1{font-size:54px}
+  .actions{grid-template-columns:1fr 170px;max-width:540px}
+  .sticky{display:none}
+  .foot{text-align:left;grid-column:1 / -1}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero" aria-label="Ivan-only Douglas preview">
+    <div class="stage">
+      <div class="stage-inner">
+        <div class="nav">
+          <span>Phil Smith Kia</span>
+          <a class="phone phone-pill" href="tel:19548600537">(954) 860-0537</a>
+        </div>
+        <div class="preview">Ivan-only QA preview</div>
+        <h1>Douglas, your <span class="accent">2024 Kia Telluride</span> may be in a strong trade position.</h1>
+        <p class="sub">A short preview for Ivan to review before any customer send. The next step is a quick appraisal check with real numbers and no pressure.</p>
+        <div class="metrics" aria-label="Offer summary">
+          <div class="metric good"><span>Estimated equity*</span><b>$12,440</b></div>
+          <div class="metric"><span>Current payment</span><b>$903/mo</b></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="tel:19548600537">Book My Appraisal</a>
+          <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+        </div>
+        <div class="audio-box" data-qa="audio-visible" data-voice-label="zara_female_sales" data-engine="ChatterboxTTS">
+          <div class="audio-top">
+            <div class="audio-title">Personal voice preview</div>
+            <div id="audioState" class="audio-meta">zara_female_sales · 28.44s</div>
+          </div>
+          <button id="playMessage" class="play" type="button">Play Douglas preview audio</button>
+          <audio id="personalAudio" controls preload="auto" playsinline autoplay>
+            <source src="../audios/ivan-only-douglas-chatterbox-test.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <section class="panel">
+        <div class="label">Current vehicle</div>
+        <div class="vehicle-row">
+          <div>
+            <h2>2024 Kia Telluride</h2>
+            <p class="copy">Coconut Creek area · approx. 27,100 miles</p>
+          </div>
+          <span class="tag">Appraisal ready</span>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">Comparable options</div>
+        <div class="models">
+          <a class="model" href="https://www.philsmithkia.com/search/new-2027-kia-telluride-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2027 Kia Telluride</strong><span>New Telluride inventory</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sorento-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sorento</strong><span>Three-row SUV alternative</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sportage-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sportage</strong><span>Lower-payment comparison</span></span><b>View</b>
+          </a>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">Next step</div>
+        <p class="copy">Ivan can confirm condition, mileage, options, payoff, market demand, and the real trade value in a simple appraisal visit.</p>
+        <div class="rep">
+          <div class="avatar">IS</div>
+          <div><b>Ivan Silva</b><span>Sales · Phil Smith Kia · <a class="phone" href="tel:19548600537">(954) 860-0537</a></span></div>
+        </div>
+      </section>
+    </div>
+    <p class="foot">*All values are estimates for internal preview and are not a guaranteed offer, approval, payment, APR, or availability. This page is for Ivan's QA only before any customer send.</p>
+  </section>
+</main>
+<div class="sticky" aria-label="Quick actions">
+  <div class="sticky-inner">
+    <a class="btn primary" href="tel:19548600537">Book My Appraisal</a>
+    <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+  </div>
+</div>
+<script>
+(function(){
+  var audio=document.getElementById('personalAudio');
+  var button=document.getElementById('playMessage');
+  var state=document.getElementById('audioState');
+  if(!audio||!button||!state)return;
+  function label(text){state.textContent='zara_female_sales · '+text;}
+  function play(){audio.muted=false;var p=audio.play();if(p&&p.catch){p.then(function(){label('playing');}).catch(function(){label('tap to play');});}}
+  button.addEventListener('click',play);
+  audio.addEventListener('play',function(){label('playing');});
+  audio.addEventListener('pause',function(){if(!audio.ended)label('paused');});
+  audio.addEventListener('ended',function(){label('replay');});
+  window.addEventListener('load',function(){var p=audio.play();if(p&&p.catch){p.then(function(){label('playing');}).catch(function(){label('tap to play');});}});
+})();
+</script>
+</body>
+</html>

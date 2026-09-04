@@ -1,0 +1,94 @@
+{
+  "verdict": "BLOCK_SEND",
+  "passed_all": false,
+  "failures": [
+    "audio_duration"
+  ],
+  "audio_mode": "cosyvoice_per_client",
+  "results": [
+    {
+      "check": "audio_size",
+      "passed": true,
+      "detail": "size=694701 bytes"
+    },
+    {
+      "check": "voice_not_forbidden",
+      "passed": true,
+      "detail": "voice='Zaramaya (female)' mode=cosyvoice_per_client"
+    },
+    {
+      "check": "voice_gender_map",
+      "passed": true,
+      "detail": "gender=M expected voice contains 'zaramaya', got 'Zaramaya (female)'"
+    },
+    {
+      "check": "audio_duration",
+      "passed": false,
+      "detail": "per-client duration=86.76s (required 25-40s)"
+    },
+    {
+      "check": "audio_volume",
+      "passed": true,
+      "detail": "mean_volume≈0.2512 linear"
+    },
+    {
+      "check": "script_has_name",
+      "passed": true,
+      "detail": "N/A for fixed clone (per-client specifics on page)"
+    },
+    {
+      "check": "phone_visible",
+      "passed": true,
+      "detail": "tel:19548600537 + (954) 860-0537 present"
+    },
+    {
+      "check": "phone_color_e5e7eb",
+      "passed": true,
+      "detail": "phone color #E5E7EB, no forbidden blue"
+    },
+    {
+      "check": "cta_green",
+      "passed": true,
+      "detail": "CTA green #16a34a present"
+    },
+    {
+      "check": "cta_present",
+      "passed": true,
+      "detail": "CTA 'Book My Appraisal' present"
+    },
+    {
+      "check": "avatar_is",
+      "passed": true,
+      "detail": "avatar initials 'IS'"
+    },
+    {
+      "check": "ai_disclosure",
+      "passed": true,
+      "detail": "AI disclosure present (review-only)"
+    },
+    {
+      "check": "equivalent_models",
+      "passed": true,
+      "detail": "equivalent model links present"
+    },
+    {
+      "check": "no_other_customer_data",
+      "passed": true,
+      "detail": "page references Carlos Mendes"
+    },
+    {
+      "check": "landing_http",
+      "passed": true,
+      "detail": "SKIPPED — local test mode, not deployed"
+    }
+  ],
+  "meta": {
+    "customer_name": "Carlos Mendes",
+    "customer_gender": "M",
+    "lang": "pt",
+    "voice_label": "Zaramaya (female)",
+    "landing_url": null,
+    "started_at": "2026-08-28T03:16:13.069007+00:00",
+    "finished_at": "2026-08-28T03:16:13.172341+00:00"
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joao Souza - Phil Smith Kia Appraisal Preview</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080b10;--panel:#111722;--panel2:#151d2b;--line:#253044;
+  --text:#f8fafc;--soft:#b8c2d2;--muted:#7d889b;
+  --green:#16a34a;--phone:#E5E7EB;--gold:#d6b25e;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+a.phone,a.phone:link,a.phone:visited,a.phone:hover,a.phone:active{color:var(--phone);text-decoration:none}
+.page{max-width:1120px;margin:0 auto;padding:18px 16px 92px}
+.hero{display:grid;gap:16px;min-height:calc(100svh - 92px);align-content:start}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.brand{color:#fff;font-weight:800}
+.phone-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid rgba(229,231,235,.24);border-radius:999px;background:rgba(229,231,235,.07);font-weight:800;white-space:nowrap}
+.hero-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#151d2a 0%,#0d121b 58%,#11090a 100%);padding:24px 18px 18px;box-shadow:0 24px 70px rgba(0,0,0,.32)}
+.hero-content{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;color:#ffd9d9;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(22,163,74,.15)}
+h1{font-size:34px;line-height:1.05;font-weight:900;max-width:760px}
+.highlight{color:#ff6262}
+.sub{margin-top:13px;color:var(--soft);font-size:16px;line-height:1.5;max-width:680px}
+.numbers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.metric{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:13px}
+.metric span{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.metric b{display:block;margin-top:3px;font-size:22px;line-height:1.1}
+.metric.equity{background:rgba(22,163,74,.14);border-color:rgba(74,222,128,.34)}
+.metric.equity b{color:#4ade80}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:13px;text-decoration:none;font-size:15px;font-weight:900;text-align:center}
+.btn.primary{background:var(--green);color:#fff;box-shadow:0 14px 32px rgba(22,163,74,.24)}
+.btn.secondary{border:1px solid rgba(229,231,235,.22);background:rgba(229,231,235,.08);color:var(--phone)}
+.audio-card{position:relative;z-index:1;margin-top:16px;border:1px solid rgba(214,178,94,.36);border-radius:18px;background:rgba(8,11,16,.72);padding:15px}
+.audio-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.audio-title{font-size:14px;font-weight:900}
+.audio-state{color:var(--gold);font-size:12px;font-weight:800;white-space:nowrap}
+.play-button{width:100%;min-height:48px;border:0;border-radius:12px;background:#fff;color:#0b111a;font-size:15px;font-weight:900;cursor:pointer;margin-bottom:11px}
+audio{display:block;width:100%;height:42px}
+.quick-grid{display:grid;gap:12px}
+.panel{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px}
+.label{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.vehicle{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.vehicle h2{font-size:20px;line-height:1.15}
+.tag{color:#0b111a;background:var(--gold);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;white-space:nowrap}
+.meta{margin-top:7px;color:var(--soft);font-size:13px;line-height:1.45}
+.models{display:grid;gap:9px}
+.model{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 12px;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.04);text-decoration:none}
+.model strong{display:block;font-size:14px}
+.model span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.model b{color:#fff;font-size:13px;white-space:nowrap}
+.trust{color:var(--soft);font-size:13px;line-height:1.5}
+.rep{display:flex;align-items:center;gap:12px;margin-top:13px}
+.avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--green),#0b5e2a);font-weight:900}
+.rep b{display:block}
+.rep span{display:block;color:var(--soft);font-size:12px;margin-top:2px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 14px;background:rgba(8,11,16,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+.sticky-inner{max-width:520px;margin:0 auto;display:grid;grid-template-columns:1fr 112px;gap:9px}
+.footer{padding:20px 4px;color:var(--muted);font-size:11px;line-height:1.55;text-align:center}
+@media (min-width:780px){
+  .page{padding:28px 28px 34px}
+  .hero{min-height:auto;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);align-items:start}
+  .hero-card{grid-row:1 / span 2;padding:34px}
+  h1{font-size:52px}
+  .actions{grid-template-columns:1fr 170px;max-width:520px}
+  .quick-grid{align-self:stretch}
+  .sticky{display:none}
+  .footer{text-align:left;grid-column:1 / -1}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero" aria-label="Joao Souza appraisal preview">
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="topline">
+          <span class="brand">Phil Smith Kia</span>
+          <a class="phone phone-pill" href="tel:19548600537">(954) 860-0537</a>
+        </div>
+        <div class="eyebrow"><span class="dot"></span>Pré-visualização pessoal para Joao Souza</div>
+        <h1>Seu <span class="highlight">2021 Kia Sorento</span> pode estar em uma boa posição de troca.</h1>
+        <p class="sub">Joao Souza, fiz esta pré-visualização rápida porque o sistema mostra cerca de <strong>$9,200 em equity*</strong>. Uma avaliação de 20 minutos dá o número real.</p>
+        <div class="numbers" aria-label="Vehicle summary">
+          <div class="metric equity"><span>Equity estimado*</span><b>$9,200</b></div>
+          <div class="metric"><span>Pagamento atual</span><b>$XXX/mo</b></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="sms:19548600537?&body=Ivan,%20I%20want%20the%20free%20appraisal%20-%20Joao%20Souza">Book My Appraisal</a>
+          <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+        </div>
+        <div class="audio-card" data-qa="audio-visible">
+          <div class="audio-head">
+            <div class="audio-title">Mensagem de áudio pessoal</div>
+            <div id="audioState" class="audio-state">Ready</div>
+          </div>
+          <button id="playMessage" class="play-button" type="button">Ouvir mensagem de Joao Souza</button>
+          <audio id="personalAudio" controls preload="auto" playsinline>
+            <source src="../audios/joao-souza.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+    <div class="quick-grid">
+      <section class="panel">
+        <div class="label">Veículo atual</div>
+        <div class="vehicle">
+          <div>
+            <h2>2021 Kia Sorento</h2>
+            <p class="meta">Lighthouse Point, FL</p>
+          </div>
+          <span class="tag">Appraisal ready</span>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">Opções para comparar</div>
+        <div class="models">
+                    <a class="model" href="https://www.philsmithkia.com/search/new-2027-kia-telluride-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2027 Kia Telluride</strong><span>New Telluride inventory</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sorento-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sorento</strong><span>3-row SUV alternative</span></span><b>View</b>
+          </a>
+          <a class="model" href="https://www.philsmithkia.com/search/new-2026-kia-sportage-lighthouse-point-fl/" target="_blank" rel="noopener">
+            <span><strong>2026 Kia Sportage</strong><span>Lower-payment option</span></span><b>View</b>
+          </a>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">Próximo passo</div>
+        <p class="trust">Traga o 2021 Kia Sorento e inspecionamos estado, opcionais, pneus, histórico e demanda atual do mercado. Sem pressão. Se o número não estiver bom, você fica com o carro.</p>
+        <div class="rep">
+          <div class="avatar">IS</div>
+          <div><b>Ivan Silva</b><span>Sales · Phil Smith Kia · <a class="phone" href="tel:19548600537">(954) 860-0537</a></span></div>
+        </div>
+      </section>
+    </div>
+    <p class="footer">Todos os valores são estimativas de dados de mercado e não são oferta nem valor garantido. O valor real de troca é definido apenas após avaliação física e depende de estado, quilometragem, opcionais, histório e demanda. Esta pré-visualização e áudio são gerados pelo assistente de IA do Ivan e são para revisão do Ivan antes de qualquer envio ao cliente.</p>
+  </section>
+</main>
+<div class="sticky" aria-label="Quick actions">
+  <div class="sticky-inner">
+    <a class="btn primary" href="sms:19548600537?&body=Ivan,%20I%20want%20the%20free%20appraisal%20-%20Joao%20Souza">Book My Appraisal</a>
+    <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+  </div>
+</div>
+<script>
+(function(){
+  var audio=document.getElementById('personalAudio');
+  var button=document.getElementById('playMessage');
+  var state=document.getElementById('audioState');
+  if(!audio||!button||!state)return;
+  function setState(t){state.textContent=t;}
+  function playMessage(){audio.muted=false;var a=audio.play();if(a&&a.then){a.then(function(){setState('Playing');}).catch(function(){setState('Tap to play');});}}
+  button.addEventListener('click',playMessage);
+  audio.addEventListener('play',function(){setState('Playing');});
+  audio.addEventListener('pause',function(){if(!audio.ended)setState('Paused');});
+  audio.addEventListener('ended',function(){setState('Replay');});
+  window.addEventListener('load',function(){var a=audio.play();if(a&&a.catch){a.then(function(){setState('Playing');}).catch(function(){setState('Tap to play');});});
+})();
+</script>
+</body>
+</html>

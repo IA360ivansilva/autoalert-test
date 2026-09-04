@@ -1,0 +1,95 @@
+{
+  "verdict": "BLOCK_SEND",
+  "passed_all": false,
+  "failures": [
+    "audio_per_client_25_40s",
+    "ai_disclosure"
+  ],
+  "audio_mode": "approved_clone_copy",
+  "results": [
+    {
+      "check": "audio_size",
+      "passed": true,
+      "detail": "size=36144 bytes"
+    },
+    {
+      "check": "voice_not_forbidden",
+      "passed": true,
+      "detail": "voice='Ivan (male)' mode=approved_clone_copy"
+    },
+    {
+      "check": "voice_gender_map",
+      "passed": true,
+      "detail": "gender=M expected voice contains 'ivan', got 'Ivan (male)'"
+    },
+    {
+      "check": "audio_per_client_25_40s",
+      "passed": false,
+      "detail": "mode=approved_clone_copy duration=2.26s — fixed/short clone cannot carry per-client 25-40s script; BLOCK_SEND pending Ivan decision (ElevenLabs upgrade OR XTTS with numpy<1.27 + HF_TOKEN)"
+    },
+    {
+      "check": "audio_volume",
+      "passed": true,
+      "detail": "mean_volume≈0.1023 linear"
+    },
+    {
+      "check": "script_has_name",
+      "passed": true,
+      "detail": "N/A for fixed clone (per-client specifics on page)"
+    },
+    {
+      "check": "phone_visible",
+      "passed": true,
+      "detail": "tel:19548600537 + (954) 860-0537 present"
+    },
+    {
+      "check": "phone_color_e5e7eb",
+      "passed": true,
+      "detail": "phone color #E5E7EB, no forbidden blue"
+    },
+    {
+      "check": "cta_green",
+      "passed": true,
+      "detail": "CTA green #16a34a present"
+    },
+    {
+      "check": "cta_present",
+      "passed": true,
+      "detail": "CTA 'Book My Appraisal' present"
+    },
+    {
+      "check": "avatar_is",
+      "passed": true,
+      "detail": "avatar initials 'IS'"
+    },
+    {
+      "check": "ai_disclosure",
+      "passed": false,
+      "detail": "AI disclosure present (review-only)"
+    },
+    {
+      "check": "equivalent_models",
+      "passed": true,
+      "detail": "equivalent model links present"
+    },
+    {
+      "check": "no_other_customer_data",
+      "passed": true,
+      "detail": "page references Joao Souza"
+    },
+    {
+      "check": "landing_http",
+      "passed": true,
+      "detail": "SKIPPED — local test mode, not deployed"
+    }
+  ],
+  "meta": {
+    "customer_name": "Joao Souza",
+    "customer_gender": "M",
+    "lang": "pt",
+    "voice_label": "Ivan (male)",
+    "landing_url": null,
+    "started_at": "2026-08-28T02:04:19.493929+00:00",
+    "finished_at": "2026-08-28T02:04:19.560366+00:00"
+  }
+}
