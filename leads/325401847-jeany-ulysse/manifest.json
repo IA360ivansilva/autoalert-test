@@ -11,6 +11,11 @@
   "do_not_call": 0,
   "do_not_email": 0,
   "voice": "ivan_male_sales",
-  "audio_duration_seconds": 32.96,
-  "status": "READY_FOR_INTERNAL_TEST"
+  "audio_duration_seconds": 39.15,
+  "status": "READY_FOR_INTERNAL_TEST",
+  "voice_provider": "elevenlabs",
+  "voice_name": "IVAN SILVA",
+  "voice_id": "I55Joc0an3PQZcgyAzpT",
+  "name_pronunciation": "Eevahn Silva",
+  "elevenlabs_request_id": "FEkmEvLjSpNa3K0NwqGy"
 }
