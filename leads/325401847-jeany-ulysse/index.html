@@ -1,116 +1,124 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jeany Ulysse | Phil Smith Kia</title><style>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phil Smith Kia — Your Upgrade Opportunity</title>
+<style>
 *{box-sizing:border-box}
 body{margin:0;background:#0a0e17;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:520px;margin:auto;padding:30px 22px 110px}
-.tag{color:#ff6262;font-size:12px;font-weight:800;letter-spacing:.5px}
-h1{font-size:32px;line-height:1.15;margin:8px 0 12px}
-.red{color:#ff5a5a}
-.card{background:#111827;border:1px solid #263244;border-radius:16px;padding:18px;margin:16px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.metric{padding:14px;background:#172033;border-radius:10px;text-align:center}
-small{color:#aeb8c7;font-size:12px}
-strong{color:#4ade80}
-.payment-highlight{background:linear-gradient(135deg,#1a2332 0%,#0f1923 100%);border:1px solid #2a4a3a}
-.payment-highlight strong{font-size:1.3rem}
-footer{position:fixed;bottom:0;left:0;right:0;background:#0a0e17ee;border-top:1px solid #263244;padding:13px}
-footer div{max-width:520px;margin:auto;display:flex;gap:10px}
-a{text-decoration:none;text-align:center;font-weight:800;border-radius:12px;padding:15px;color:white;flex:1}
-.sms{background:#16a34a}
-.call{background:#263244}
-.upgrade-badge{display:inline-block;background:#1e3a5f;color:#7dd3fc;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:8px}
-.diff{font-size:13px;color:#888}
-.diff b{color:#4ade80}
-.voice-card{background:linear-gradient(135deg,#1a1f2e 0%,#0f1520 100%);border:1px solid #2a3548}
-.voice-card .play-indicator{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.voice-card .pulse{width:10px;height:10px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+main{max-width:520px;margin:auto;padding:20px 22px 120px}
+.brand{background:#000;padding:18px 20px;display:flex;align-items:center;gap:12px;margin-bottom:20px;border-radius:12px}
+.brand-logo{width:48px;height:48px;background:#d4af37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:1.2rem}
+.brand-name{font-size:1.3rem;font-weight:700;color:#d4af37}
+.brand-sub{font-size:0.8rem;color:#888}
+.tag{background:#1e3a5f;color:#7dd3fc;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;display:inline-block;margin-bottom:12px;letter-spacing:.5px}
+.hook{font-size:1.6rem;font-weight:800;line-height:1.2;margin:12px 0 16px}
+.hook span{color:#4ade80}
+.equity-card{background:linear-gradient(135deg,#1a2332 0%,#0f1923 100%);border:1px solid #2a4a3a;border-radius:16px;padding:20px;margin:16px 0;text-align:center}
+.equity-card .label{color:#888;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.equity-card .amount{font-size:2.2rem;font-weight:900;color:#4ade80}
+.equity-card .desc{color:#aaa;font-size:0.9rem;margin-top:6px}
+.voice-card{background:linear-gradient(135deg,#1a1f2e 0%,#0f1520 100%);border:1px solid #2a3548;border-radius:16px;padding:18px;margin:16px 0;display:flex;align-items:center;gap:12px}
+.voice-card .pulse{width:12px;height:12px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.voice-card .play-text{font-size:13px;color:#4ade80;font-weight:600}
-</style></head>
+.voice-card .text{color:#4ade80;font-weight:600;font-size:0.9rem}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.compare .col{background:#111827;border:1px solid #263244;border-radius:12px;padding:16px;text-align:center}
+.compare .col .label{color:#888;font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.compare .col .value{font-size:1.2rem;font-weight:700;color:#fff}
+.compare .col.highlight{border-color:#2a4a3a;background:linear-gradient(135deg,#1a2332 0%,#0f1923 100%)}
+.compare .col.highlight .value{color:#4ade80}
+.difference{background:#111827;border:1px solid #263244;border-radius:12px;padding:14px;margin:16px 0;text-align:center}
+.difference .label{color:#888;font-size:0.75rem;margin-bottom:4px}
+.difference .value{font-size:1.4rem;font-weight:800;color:#4ade80}
+.cta-button{display:block;width:100%;background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);color:#000;font-size:1.1rem;font-weight:700;padding:18px 24px;border-radius:12px;text-decoration:none;margin:20px 0;text-align:center}
+.cta-sub{font-size:0.75rem;color:#666;text-align:center;margin-top:-12px;margin-bottom:20px}
+.agent{display:flex;align-items:center;gap:12px;padding:20px 0;border-top:1px solid #1a1a1a;margin-top:20px}
+.agent-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#d4af37,#b8941f);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:#000}
+.agent-info .name{font-weight:600;font-size:0.95rem}
+.agent-info .role{font-size:0.8rem;color:#888}
+.agent-info .phone{font-size:0.85rem;color:#d4af37;margin-top:2px}
+footer{margin-top:20px;font-size:0.7rem;color:#444;text-align:center}
+</style>
+</head>
 <body>
 <main>
-<div class="tag">PERSONALIZED AUTOALERT REVIEW</div>
-<div class="upgrade-badge">🔥 HOT LEAD · 91/100 SCORE</div>
-<h1>Jeany, your <span class="red">2020 Kia Sorento</span> puts you in a powerful position.</h1>
-<p>Our system estimates approximately <strong>$18,615 in equity</strong> and identified a move into a <b>2026 Kia Sorento</b>.</p>
 
-<div class="card voice-card">
-<div class="play-indicator">
-<div class="pulse"></div>
-<span class="play-text">🔊 Ivan is speaking...</span>
-</div>
-<small>Personalized message from Ivan Silva · Phil Smith Kia</small>
-</div>
-
-<div class="card payment-highlight">
-<div class="grid">
-<div class="metric">
-<small>CURRENT PAYMENT</small>
-<br><strong>$466.95</strong>
-</div>
-<div class="metric">
-<small>NEW PAYMENT</small>
-<br><strong>$480.00</strong>
-</div>
-</div>
-<p class="diff" style="margin-top:12px">That's just <b>+$13/month</b> for a brand new car with full warranty.</p>
-</div>
-
-<div class="card">
-<h3 style="margin-top:0">Your numbers at a glance</h3>
-<div class="grid">
-<div class="metric"><small>EST. EQUITY</small><br><strong>$18,615</strong></div>
-<div class="metric"><small>TRADE VALUE</small><br><strong>$7,985</strong></div>
-<div class="metric"><small>TURN PROBABILITY</small><br><b>67%</b></div>
-<div class="metric"><small>DEAL MATURITY</small><br><b>05/27/2027</b></div>
-</div>
-</div>
-
-<div class="card">
-<div class="grid">
-<div class="metric"><small>CURRENT VEHICLE</small><br><b>2020 Kia Sorento</b></div>
-<div class="metric"><small>NEXT VEHICLE</small><br><b>2026 Kia Sorento</b></div>
-</div>
-<p style="margin-top:12px"><b>MSRP:</b> $33,885 &nbsp;|&nbsp; <b>Est. Mileage:</b> Warranty active</p>
-</div>
-
-<div class="card">
-<h3 style="margin-top:0">Free 20-minute appraisal</h3>
-<p>We'll inspect your Sorento, confirm its trade value, compare your options, and answer every question. Zero obligation. Zero pressure.</p>
-</div>
-
-<div class="card">
-<b>Ivan Silva</b><br>
-<small>Phil Smith Kia · (954) 860-0537</small>
-</div>
-
-<small>Estimates are not guaranteed offers. Final value requires a physical appraisal.</small>
-</main>
-<footer>
+<!-- Phil Smith Kia Brand Header -->
+<div class="brand">
+<div class="brand-logo">PS</div>
 <div>
-<a class="sms" href="sms:+19548600537?&body=Hi%20Ivan%2C%20I%27d%20like%20to%20review%20my%202020%20Kia%20Sorento.">Message Ivan</a>
-<a class="call" href="tel:+19548600537">Call Ivan</a>
+<div class="brand-name">Phil Smith Kia</div>
+<div class="brand-sub">Lighthouse Point, FL</div>
 </div>
-</footer>
+</div>
 
+<!-- Hook -->
+<div class="tag">🔥 EXCLUSIVE UPGRADE OFFER</div>
+<h1 class="hook">Hi Jeany, your 2020 Kia Sorento has <span>$18,615 in equity</span>.</h1>
+
+<!-- Voice Card -->
+<div class="voice-card">
+<div class="pulse"></div>
+<span class="text">🔊 Ivan is speaking...</span>
+</div>
+
+<!-- Equity Highlight -->
+<div class="equity-card">
+<div class="label">Your Estimated Equity</div>
+<div class="amount">$18,615</div>
+<div class="desc">Based on current market value</div>
+</div>
+
+<!-- Payment Comparison -->
+<div class="compare">
+<div class="col">
+<div class="label">Current Payment</div>
+<div class="value">$466.95</div>
+</div>
+<div class="col highlight">
+<div class="label">New Payment</div>
+<div class="value">$480.00</div>
+</div>
+</div>
+<div class="difference">
+<div class="label">You only pay</div>
+<div class="value">+$13/month more</div>
+</div>
+
+<!-- CTA -->
+<a href="tel:+19548600537" class="cta-button">Book My Free 20-Minute Appraisal</a>
+<p class="cta-sub">No obligation · Confirm trade value · Drive home today</p>
+
+<!-- Agent -->
+<div class="agent">
+<div class="agent-avatar">IS</div>
+<div class="agent-info">
+<div class="name">Ivan Silva</div>
+<div class="role">Phil Smith Kia</div>
+<div class="phone">(954) 860-0537</div>
+</div>
+</div>
+
+<footer>4250 N Federal Hwy, Lighthouse Point, FL · philsmithkia.com</footer>
+
+</main>
+
+<!-- Autoplay Voice -->
 <audio id="voiceAudio" autoplay playsinline>
 <source src="audios/325401847-jeany-ulysse.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// Try to autoplay on page load
 document.addEventListener('DOMContentLoaded', function() {
     var audio = document.getElementById('voiceAudio');
     audio.volume = 1.0;
     var playPromise = audio.play();
     if (playPromise !== undefined) {
         playPromise.catch(function(error) {
-            // Autoplay blocked - try on first user interaction
-            document.addEventListener('click', function() {
-                audio.play();
-            }, { once: true });
-            document.addEventListener('touchstart', function() {
-                audio.play();
-            }, { once: true });
+            document.addEventListener('click', function() { audio.play(); }, { once: true });
+            document.addEventListener('touchstart', function() { audio.play(); }, { once: true });
         });
     }
 });
