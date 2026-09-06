@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anita O'Brien — Phil Smith Kia</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.container{max-width:480px;width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.hero{background:linear-gradient(135deg,#0d1b2a 0%,#1b263b 50%,#415a77 100%);padding:30px;text-align:center}
+.brand{color:#fff;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.title{color:#fff;font-size:28px;font-weight:700;margin-bottom:8px}
+.subtitle{color:rgba(255,255,255,.7);font-size:14px}
+.content{padding:30px}
+.lead-info{display:flex;align-items:center;gap:15px;margin-bottom:25px}
+.avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#415a77,#778da9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:600}
+.lead-details{flex:1}
+.lead-name{font-size:20px;font-weight:600;color:#1a1a1a}
+.lead-phone{font-size:13px;color:#666;margin-top:2px}
+.audio-section{background:#f8f9fa;border-radius:8px;padding:20px;margin-bottom:25px;text-align:center}
+.play-btn{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#0d1b2a,#415a77);border:none;color:#fff;font-size:24px;cursor:pointer;transition:all .2s;box-shadow:0 4px 15px rgba(65,90,119,.4)}
+.play-btn:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(65,90,119,.5)}
+.play-label{margin-top:10px;font-size:13px;color:#666}
+.duration{font-size:12px;color:#888;margin-top:5px}
+.cta-section{background:#0d1b2a;border-radius:8px;padding:20px;text-align:center}
+.cta-label{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:10px}
+.call-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#e63946,#c1121f);color:#fff;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:600;font-size:15px}
+.call-btn:hover{background:linear-gradient(135deg,#c1121f,#800f14)}
+.call-icon{font-size:18px}
+.footer{padding:15px 30px;text-align:center;font-size:11px;color:#999;border-top:1px solid #eee}
+@media(max-width:400px){.title{font-size:24px}.container{margin:0}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="brand">Phil Smith Kia</div>
+    <div class="title">Hola Anita 👋</div>
+    <div class="subtitle">Lighthouse Point, FL</div>
+  </div>
+  <div class="content">
+    <div class="lead-info">
+      <div class="avatar">A</div>
+      <div class="lead-details">
+        <div class="lead-name">Anita O'Brien</div>
+        <div class="lead-phone">(954) 829-2832</div>
+      </div>
+    </div>
+    <div class="audio-section">
+      <button class="play-btn" onclick="playAudio()" aria-label="Play message">▶</button>
+      <div class="play-label">Sua mensagem do Ivan</div>
+      <div class="duration">30.6 segundos</div>
+      <audio id="voice-audio" controls autoplay style="display:none" src="audios/anita-obrien.mp3"></audio>
+    </div>
+    <div class="cta-section">
+      <div class="cta-label">Fale com o Ivan agora</div>
+      <a href="tel:19548600537" class="call-btn">
+        <span class="call-icon">📞</span> Ligação Grátis
+      </a>
+    </div>
+  </div>
+  <div class="footer">
+    Phil Smith Kia · 4250 N Federal Hwy, Lighthouse Point, FL<br>
+    Ivan Silva · (954) 860-0537
+  </div>
+</div>
+<script>
+function playAudio(){
+  const audio = document.getElementById('voice-audio');
+  if(audio.paused){ audio.play(); document.querySelector('.play-btn').textContent = '⏸'; }
+  else { audio.pause(); document.querySelector('.play-btn').textContent = '▶'; }
+}
+window.addEventListener('load', ()=>{ setTimeout(()=>{ const a=document.getElementById('voice-audio'); if(a){ a.play().catch(()=>{}); } }, 500); });
+</script>
+</body>
+</html>
