@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Russell Biffis | Phil Smith Kia</title><style>
+*{box-sizing:border-box}
+body{margin:0;background:#0a0e17;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:520px;margin:auto;padding:30px 22px 110px}
+.tag{color:#ff6262;font-size:12px;font-weight:800;letter-spacing:.5px}
+h1{font-size:32px;line-height:1.15;margin:8px 0 12px}
+.red{color:#ff5a5a}
+.card{background:#111827;border:1px solid #263244;border-radius:16px;padding:18px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric{padding:14px;background:#172033;border-radius:10px;text-align:center}
+small{color:#aeb8c7;font-size:12px}
+strong{color:#4ade80}
+.payment-highlight{background:linear-gradient(135deg,#1a2332 0%,#0f1923 100%);border:1px solid #2a4a3a}
+.payment-highlight strong{font-size:1.3rem}
+footer{position:fixed;bottom:0;left:0;right:0;background:#0a0e17ee;border-top:1px solid #263244;padding:13px}
+footer div{max-width:520px;margin:auto;display:flex;gap:10px}
+a{text-decoration:none;text-align:center;font-weight:800;border-radius:12px;padding:15px;color:white;flex:1}
+.sms{background:#16a34a}
+.call{background:#263244}
+.upgrade-badge{display:inline-block;background:#1e3a5f;color:#7dd3fc;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+.diff{font-size:13px;color:#888}
+.diff b{color:#4ade80}
+.voice-card{background:linear-gradient(135deg,#1a1f2e 0%,#0f1520 100%);border:1px solid #2a3548}
+.voice-card .play-indicator{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.voice-card .pulse{width:10px;height:10px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.voice-card .play-text{font-size:13px;color:#4ade80;font-weight:600}
+</style></head>
+<body>
+<main>
+<div class="tag">PERSONALIZED AUTOALERT REVIEW</div>
+<div class="upgrade-badge">🔥 HOT LEAD · 91/100 SCORE</div>
+<h1>Russell, your <span class="red">2025 Kia K4</span> puts you in a powerful position.</h1>
+<p>Our system estimates a strong trade value and identified a move into a <b>2026 Kia K4</b>.</p>
+
+<div class="card voice-card">
+<div class="play-indicator">
+<div class="pulse"></div>
+<span class="play-text">🔊 Ivan's agent is speaking...</span>
+</div>
+<small>Personalized message from Phil Smith Kia</small>
+</div>
+
+<div class="card payment-highlight">
+<div class="grid">
+<div class="metric">
+<small>CURRENT PAYMENT</small>
+<br><strong>$412.81</strong>
+</div>
+<div class="metric">
+<small>NEW PAYMENT</small>
+<br><strong>$544.00</strong>
+</div>
+</div>
+<p class="diff" style="margin-top:12px">That's just <b>+$131/month</b> for a brand new car with full warranty.</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Your numbers at a glance</h3>
+<div class="grid">
+<div class="metric"><small>EST. EQUITY</small><br><strong>$15,430</strong></div>
+<div class="metric"><small>TRADE VALUE</small><br><strong>$15,430</strong></div>
+<div class="metric"><small>TURN PROBABILITY</small><br><b>91%</b></div>
+<div class="metric"><small>DEAL MATURITY</small><br><b>05/27/2027</b></div>
+</div>
+</div>
+
+<div class="card">
+<div class="grid">
+<div class="metric"><small>CURRENT VEHICLE</small><br><b>2025 Kia K4</b></div>
+<div class="metric"><small>NEXT VEHICLE</small><br><b>2026 Kia K4</b></div>
+</div>
+<p style="margin-top:12px"><b>MSRP:</b> $33,885 &nbsp;|&nbsp; <b>Est. Mileage:</b> Warranty active</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Free 20-minute appraisal</h3>
+<p>We'll inspect your K4, confirm its trade value, compare your options, and answer every question. Zero obligation. Zero pressure.</p>
+</div>
+
+<div class="card">
+<b>Ivan Silva</b><br>
+<small>Phil Smith Kia · (954) 860-0537</small>
+</div>
+
+<small>Estimates are not guaranteed offers. Final value requires a physical appraisal.</small>
+</main>
+<footer>
+<div>
+<a class="sms" href="sms:+19548600537?&body=Hi%20Ivan%2C%20I%27d%20like%20to%20review%20my%202025%20Kia%20K4.">Message Ivan</a>
+<a class="call" href="tel:+19548600537">Call Ivan</a>
+</div>
+</footer>
+
+<audio id="voiceAudio" autoplay playsinline>
+<source src="audios/325401847-russell-biffis.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('voiceAudio');
+    audio.volume = 1.0;
+    var playPromise = audio.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+            document.addEventListener('click', function() {
+                audio.play();
+            }, { once: true });
+            document.addEventListener('touchstart', function() {
+                audio.play();
+            }, { once: true });
+        });
+    }
+});
+</script>
+</body>
+</html>
