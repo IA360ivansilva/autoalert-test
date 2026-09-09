@@ -1,0 +1,88 @@
+═══════════════════════════════════════════════════════════════════════════════
+EDSON DAVID - SMS/WHATSAPP DELIVERY READY
+═══════════════════════════════════════════════════════════════════════════════
+
+CUSTOMER INFO:
+  Name: Edson David
+  Current Vehicle: 2023 Kia Sportage
+  Lease Ends: September 17, 2026 (3 months)
+  Current Payment: $500/month
+  Estimated New: $447/month
+  Suggested Vehicle: 2026 Kia Sportage
+  Lead Score: HIGH URGENCY (lease ending soon)
+  Opportunity Type: LEASE_ENDING + LOWER_PAYMENT
+
+PUBLIC URL:
+  https://askivan.co/edson-david-lower-payment.html
+
+MOBILE VERIFIED:
+  ✓ Responsive design tested
+  ✓ Phone buttons clickable
+  ✓ Sticky footer visible
+  ✓ Ready for SMS preview
+
+RECOMMENDED SMS MESSAGE (70 chars max per SMS segment):
+───────────────────────────────────────────────────────────────────────────────
+
+OPTION 1: Short & Urgent (single SMS)
+"Hi Edson, your Sportage lease ends 9/17. Found an option at $447/mo
+(save $53). See details: askivan.co/edson-david-lower-payment.html -Ivan"
+
+OPTION 2: Two-part (segments)
+"Hi Edson, your Kia Sportage lease is ending soon. We found an upgrade
+option at approx $447/month—about $53 less than your current $500."
+
+"Review details here: askivan.co/edson-david-lower-payment.html Call
+(954) 860-0537 or reply YES for Ivan to call back. -Ivan"
+
+WHATSAPP VERSION (no length limits):
+───────────────────────────────────────────────────────────────────────────────
+
+Hi Edson,
+
+Your 2023 Kia Sportage lease is ending on September 17th—we found a 2026
+Sportage option you should review.
+
+📊 Current: $500/month
+✓ Estimated new: $447/month
+💰 Potential savings: $53/month
+
+Details: askivan.co/edson-david-lower-payment.html
+
+👉 Tap the link to see full details, or reply YES and I'll call you.
+
+Call: (954) 860-0537
+Best time: Mornings 9-11am or evenings 5-7pm
+
+Thanks,
+Ivan Silva
+Phil Smith Kia
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CONSENT & OPT-OUT NOTES:
+  • Check CSV for Nao Ligar = SIM field before sending
+  • Include unsubscribe option in any SMS/WhatsApp chain
+  • Track replies: YES, NO, CALL_ME, etc.
+
+TRACKING SETUP:
+  Customer ID: [From CSV when processing]
+  Reason Code: LEASE_ENDING
+  Generated URL: https://askivan.co/edson-david-lower-payment.html
+  SMS Status: [Ready to send - awaiting approval]
+  SMS Sent Date: [Populate when sent]
+  SMS Sent Time: [Populate when sent]
+  Reply Status: [Track yes/no/callback]
+  Click Status: [Track if link clicked]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEXT STEPS:
+
+1. ✅ Page published: askivan.co/edson-david-lower-payment.html
+2. ⏳ Verify mobile: Test link on iPhone/Android
+3. ⏳ Send SMS/WhatsApp: Choose message version above
+4. ⏳ Track reply: Monitor for responses (yes/no/callback)
+5. ⏳ Automate: Build generator for next 5-10 leads from CSV
+
+═══════════════════════════════════════════════════════════════════════════════
