@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patricia - Ivan's Agent V1</title>
+  <style>
+    :root {
+      --kia-red: #c41230;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --soft: #f5f7fb;
+      --card: #ffffff;
+      --green: #128c7e;
+      --blue: #007aff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--soft);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(245,247,251,.92)),
+        radial-gradient(circle at 50% 0%, rgba(196,18,48,.12), transparent 34%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      padding: 18px 18px 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 8px 2px 18px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 2px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      color: var(--kia-red);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .agent-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      color: #344054;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 11px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      padding: 26px 0 18px;
+    }
+
+    .ivan-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ivan-photo {
+      width: 64px;
+      height: 64px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(17,24,39,.16);
+    }
+
+    .ivan-meta {
+      display: grid;
+      gap: 3px;
+    }
+
+    .ivan-meta strong {
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .typing {
+      min-height: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 16px;
+      margin-left: 2px;
+      transform: translateY(3px);
+      border-radius: 4px;
+      background: var(--kia-red);
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    h1 {
+      font-size: 41px;
+      line-height: 1.02;
+      letter-spacing: 0;
+      max-width: 10ch;
+    }
+
+    .hook {
+      color: #344054;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .summary-card {
+      overflow: hidden;
+      border: 1px solid rgba(17,24,39,.08);
+      border-radius: 28px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 24px 60px rgba(17,24,39,.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .summary-head {
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-head span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .summary-head strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 20px;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .metric {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 74px;
+      background: #fff;
+      padding: 15px 18px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .metric b {
+      font-size: 30px;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .metric.new b {
+      color: #0f9f6e;
+    }
+
+    .cta-stack {
+      display: grid;
+      gap: 11px;
+      padding: 18px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .primary {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(17,24,39,.18);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .contact {
+      min-height: 50px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #1f2937;
+      font-size: 14px;
+      box-shadow: none;
+    }
+
+    .contact.whatsapp {
+      border-color: rgba(18,140,126,.24);
+      color: var(--green);
+    }
+
+    .contact.sms {
+      color: var(--blue);
+    }
+
+    .note {
+      padding: 16px 18px 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .disclaimer {
+      padding: 18px 2px 0;
+      color: #7a8290;
+      font-size: 11px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (min-width: 760px) {
+      body {
+        display: grid;
+        place-items: center;
+        padding: 36px 0;
+      }
+
+      .shell {
+        width: min(100%, 1040px);
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .topbar {
+        grid-column: 1 / -1;
+        padding-bottom: 0;
+      }
+
+      .hero {
+        padding: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: 64px;
+      }
+
+      .hook {
+        max-width: 520px;
+        font-size: 21px;
+      }
+
+      .summary-card {
+        border-radius: 30px;
+      }
+
+      .disclaimer {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar" aria-label="Dealership and agent">
+      <div class="brand">
+        <span>Phil Smith Kia</span>
+        Lighthouse Point, FL
+      </div>
+      <div class="agent-pill">Ivan's Agent V1</div>
+    </header>
+
+    <section class="hero" aria-label="Patricia upgrade message">
+      <div class="ivan-row">
+        <img class="ivan-photo" src="https://avatars.githubusercontent.com/u/143127776?v=4" alt="Ivan Silva">
+        <div class="ivan-meta">
+          <strong>Ivan Silva</strong>
+          <div class="typing" aria-live="polite"><span id="typed"></span><span class="cursor"></span></div>
+        </div>
+      </div>
+
+      <h1>Patricia, I found a better option for your Kia.</h1>
+      <p class="hook">Your current payment shows room for a smarter upgrade conversation today, with estimated equity that may help lower the payment.</p>
+    </section>
+
+    <section class="summary-card" aria-label="Upgrade estimate">
+      <div class="summary-head">
+        <span>Private upgrade estimate</span>
+        <strong>Prepared by Ivan at Phil Smith Kia</strong>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <span>Current payment</span>
+          <b>$370</b>
+        </div>
+        <div class="metric">
+          <span>Estimated equity</span>
+          <b>$900</b>
+        </div>
+        <div class="metric new">
+          <span>Estimated new payment</span>
+          <b>$357</b>
+        </div>
+      </div>
+
+      <p class="note">This is a quick, human review from Ivan's Agent. No robotic voice, no pressure, just a better option worth checking.</p>
+
+      <div class="cta-stack">
+        <a class="btn primary" href="https://www.philsmithkia.com/search/new-kia-lighthouse-point-fl/?cy=33064&tp=new" target="_blank" rel="noopener">See My Upgrade Options</a>
+        <div class="contact-grid">
+          <a class="btn contact whatsapp" href="https://wa.me/19548600537?text=Hi%20Ivan%2C%20I%20want%20to%20see%20my%20Kia%20upgrade%20options.">WhatsApp</a>
+          <a class="btn contact sms" href="sms:+19548600537?&body=Hi%20Ivan%2C%20I%20want%20to%20see%20my%20Kia%20upgrade%20options.">SMS</a>
+          <a class="btn contact" href="tel:+19548600537">Call</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="disclaimer">Figures are estimates and subject to appraisal, lender approval, taxes, fees, incentives and program eligibility.</p>
+  </main>
+
+  <script>
+    (function () {
+      var text = "Ivan's Agent is typing...";
+      var target = document.getElementById("typed");
+      var index = 0;
+
+      function type() {
+        if (!target || index > text.length) return;
+        target.textContent = text.slice(0, index);
+        index += 1;
+        window.setTimeout(type, index < text.length ? 54 : 900);
+      }
+
+      type();
+    }());
+  </script>
+</body>
+</html>
