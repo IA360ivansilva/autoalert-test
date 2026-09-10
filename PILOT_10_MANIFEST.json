@@ -1,0 +1,58 @@
+{
+  "pilot_10_campaign": {
+    "criado_em": "2026-09-09",
+    "total_paginas": 10,
+    "paginas_geradas": [
+      {
+        "arquivo": "giovanni-schiavinato-telluride.html",
+        "nome": "GIOVANNI SCHIAVINATO",
+        "caminho": "/tmp/autoalert-test/giovanni-schiavinato-telluride.html"
+      },
+      {
+        "arquivo": "kimberli-sexton-sorento.html",
+        "nome": "KIMBERLI SEXTON",
+        "caminho": "/tmp/autoalert-test/kimberli-sexton-sorento.html"
+      },
+      {
+        "arquivo": "patricia-nessler-sportage.html",
+        "nome": "PATRICIA NESSLER",
+        "caminho": "/tmp/autoalert-test/patricia-nessler-sportage.html"
+      },
+      {
+        "arquivo": "terri-germain-williams-carnival.html",
+        "nome": "TERRI GERMAIN-WILLIAMS",
+        "caminho": "/tmp/autoalert-test/terri-germain-williams-carnival.html"
+      },
+      {
+        "arquivo": "jennifer-garbizo-sorento.html",
+        "nome": "JENNIFER GARBIZO",
+        "caminho": "/tmp/autoalert-test/jennifer-garbizo-sorento.html"
+      },
+      {
+        "arquivo": "louis-green-k4.html",
+        "nome": "LOUIS GREEN",
+        "caminho": "/tmp/autoalert-test/louis-green-k4.html"
+      },
+      {
+        "arquivo": "jason-bourque-k4.html",
+        "nome": "JASON BOURQUE",
+        "caminho": "/tmp/autoalert-test/jason-bourque-k4.html"
+      },
+      {
+        "arquivo": "christopher-novoa-telluride.html",
+        "nome": "CHRISTOPHER NOVOA",
+        "caminho": "/tmp/autoalert-test/christopher-novoa-telluride.html"
+      },
+      {
+        "arquivo": "jesse-koven-k4.html",
+        "nome": "JESSE KOVEN",
+        "caminho": "/tmp/autoalert-test/jesse-koven-k4.html"
+      },
+      {
+        "arquivo": "rosalyn-young-sportage.html",
+        "nome": "ROSALYN YOUNG",
+        "caminho": "/tmp/autoalert-test/rosalyn-young-sportage.html"
+      }
+    ]
+  }
+}
