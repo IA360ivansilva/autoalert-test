@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Preview - DENNIS Opportunity</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080b10;--panel:#111722;--line:#253044;--text:#f8fafc;--soft:#b8c2d2;--muted:#7d889b;--red:#c60f0f;--green:#16a34a;--phone:#E5E7EB;--gold:#d6b25e}
+html,body{min-height:100%;background:var(--bg);color:var(--text)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+a.phone,a.phone:link,a.phone:visited,a.phone:hover,a.phone:active{color:var(--phone);text-decoration:none}
+.page{max-width:1120px;margin:0 auto;padding:18px 16px 92px}
+.hero{display:grid;gap:16px;min-height:calc(100svh - 92px);align-content:start}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.brand{color:#fff;font-weight:800}
+.phone-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid rgba(229,231,235,.24);border-radius:999px;background:rgba(229,231,235,.07);font-weight:800;white-space:nowrap}
+.hero-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#151d2a 0%,#0d121b 58%,#11090a 100%);padding:24px 18px 18px;box-shadow:0 24px 70px rgba(0,0,0,.32)}
+.hero-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(198,15,15,.18),transparent 45%),radial-gradient(circle at 88% 12%,rgba(214,178,94,.2),transparent 28%);pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;color:#ffd9d9;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(198,15,15,.15)}
+h1{font-size:34px;line-height:1.05;letter-spacing:0;font-weight:900;max-width:760px}
+.highlight{color:#4ade80}
+.sub{margin-top:13px;color:var(--soft);font-size:16px;line-height:1.5;max-width:680px}
+.numbers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.metric{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:13px}
+.metric span{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.metric b{display:block;margin-top:3px;font-size:22px;line-height:1.1}
+.metric.savings{background:rgba(22,163,74,.14);border-color:rgba(74,222,128,.34)}
+.metric.savings b{color:#4ade80}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:13px;text-decoration:none;font-size:15px;font-weight:900;text-align:center}
+.btn.primary{background:var(--green);color:#fff;box-shadow:0 14px 32px rgba(22,163,74,.24)}
+.btn.secondary{border:1px solid rgba(229,231,235,.22);background:rgba(229,231,235,.08);color:var(--phone)}
+.quick-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.panel{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px}
+.label{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.vehicle{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.vehicle h2{font-size:20px;line-height:1.15}
+.tag{color:#0b111a;background:var(--gold);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;white-space:nowrap}
+.meta{margin-top:7px;color:var(--soft);font-size:13px;line-height:1.45}
+.trust{color:var(--soft);font-size:13px;line-height:1.5}
+.rep{display:flex;align-items:center;gap:12px;margin-top:13px}
+.avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--red),#6f0707);font-weight:900}
+.rep b{display:block}
+.rep span{display:block;color:var(--soft);font-size:12px;margin-top:2px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 14px;background:rgba(8,11,16,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+.sticky-inner{max-width:520px;margin:0 auto;display:grid;grid-template-columns:1fr 112px;gap:9px}
+.footer{padding:20px 4px;color:var(--muted);font-size:11px;line-height:1.55;text-align:center}
+@media (min-width:780px){
+  .page{padding:28px 28px 34px}
+  .hero{min-height:auto;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);align-items:start}
+  .hero-card{grid-row:1 / span 2;padding:34px}
+  h1{font-size:52px}
+  .actions{grid-template-columns:1fr 170px;max-width:520px}
+  .quick-grid{align-self:stretch}
+  .sticky{display:none}
+  .footer{text-align:left;grid-column:1 / -1}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero" aria-label="DENNIS opportunity preview">
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="topline">
+          <span class="brand">Phil Smith Kia</span>
+          <a class="phone phone-pill" href="tel:19548600537">(954) 860-0537</a>
+        </div>
+        <div class="eyebrow"><span class="dot"></span>High-Value Equity Alert</div>
+        <h1>DENNIS, your <span class="highlight">2024 Kia Telluride</span> has an estimated <span class="highlight">$23,355</span> in equity.</h1>
+        <p class="sub">Based on AutoAlert data, your Telluride has strong equity. You may qualify for a 2027 Kia Telluride with full warranty and newest features.</p>
+        <div class="numbers" aria-label="Equity summary">
+          <div class="metric savings"><span>Estimated equity</span><b>$23,355</b></div>
+          <div class="metric"><span>Lead score</span><b>83/100</b></div>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="tel:19548600537">Talk to Ivan</a>
+          <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+        </div>
+      </div>
+    </div>
+    <div class="quick-grid">
+      <section class="panel">
+        <div class="label">Your vehicle</div>
+        <div class="vehicle">
+          <div>
+            <h2>2024 Kia Telluride</h2>
+            <p class="meta">DENNIS · Sold by IHAB QADI · Score 83/100</p>
+          </div>
+          <span class="tag">Premium SUV</span>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">Suggested upgrade</div>
+        <div style="text-align:center;padding:12px;color:var(--soft)">
+          <strong style="display:block;color:var(--text);font-size:18px">2027 Kia Telluride</strong>
+          <p style="font-size:12px;margin-top:4px">Brand new, full warranty</p>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="label">How this works</div>
+        <p class="trust">Bring your Telluride in for a quick appraisal. We'll check the condition, mileage, and explore your best options. No pressure—if the timing or numbers don't work, that's totally fine.</p>
+        <div class="rep">
+          <div class="avatar">IS</div>
+          <div><b>Ivan Silva</b><span>Sales · Phil Smith Kia · <a class="phone" href="tel:19548600537">(954) 860-0537</a></span></div>
+        </div>
+      </section>
+    </div>
+    <p class="footer">All figures are estimates from AutoAlert data and are not an offer. Actual values depend on vehicle condition, mileage, options, payoff, and market demand. This personalized preview was generated for DENNIS to explore options with Ivan.</p>
+  </section>
+</main>
+<div class="sticky" aria-label="Quick actions">
+  <div class="sticky-inner">
+    <a class="btn primary" href="tel:19548600537">Talk to Ivan</a>
+    <a class="btn secondary phone" href="tel:19548600537">Call Ivan</a>
+  </div>
+</div>
+</body>
+</html>
