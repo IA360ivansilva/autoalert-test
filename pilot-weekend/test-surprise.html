@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 EXCLUSIVE OFFER: Dennis Smith — Phil Smith Kia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #080b10;
+            color: #e8ecf0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .urgency-bar {
+            background: #ff3d3d;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: pulse-bg 2s infinite;
+        }
+        @keyframes pulse-bg {
+            0%, 100% { background: #ff3d3d; }
+            50% { background: #ff6b6b; }
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d1321 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff3d3d;
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin-bottom: 12px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .highlight {
+            color: #ff3d3d;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .hero .equity-highlight {
+            color: #00d084;
+            font-weight: 900;
+            font-size: clamp(32px, 6vw, 56px);
+            display: block;
+            margin: 16px 0;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #8b95a5;
+            max-width: 500px;
+            margin: 0 auto 28px;
+            line-height: 1.5;
+        }
+        .selected-badge {
+            display: inline-block;
+            background: rgba(255,61,61,0.15);
+            border: 1px solid rgba(255,61,61,0.4);
+            color: #ff3d3d;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #1e2536;
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            min-width: 100px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .stat-value.alert { color: #ff3d3d; }
+        .stat-value.positive { color: #00d084; }
+        .stat-label {
+            font-size: 11px;
+            color: #8b95a5;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        .metrics {
+            padding: 40px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .metrics h2 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .vehicle-card {
+            background: #131825;
+            border: 1px solid #1e2536;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .vehicle-card.current { border-color: #ff3d3d; }
+        .vehicle-card.upgrade { border-color: #00d084; }
+        .vehicle-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 8px;
+        }
+        .vehicle-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .vehicle-name.upgrade { color: #00d084; }
+        .vehicle-detail {
+            font-size: 12px;
+            color: #8b95a5;
+            margin-top: 6px;
+        }
+        .comparison-table {
+            background: #131825;
+            border-radius: 10px;
+            border: 1px solid #1e2536;
+            overflow: hidden;
+        }
+        .comp-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid #1e2536;
+            font-size: 14px;
+        }
+        .comp-row:last-child { border-bottom: none; }
+        .comp-label { color: #8b95a5; }
+        .comp-value { font-weight: 700; }
+        .comp-value.green { color: #00d084; }
+        .comp-value.red { color: #ff3d3d; }
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #080b10 0%, #1a1f2e 100%);
+        }
+        .cta-headline {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .cta-sub {
+            font-size: 15px;
+            color: #8b95a5;
+            margin-bottom: 32px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+        .btn-surprise {
+            display: block;
+            background: linear-gradient(135deg, #ff3d3d, #ff6b6b);
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: shake 3s infinite;
+        }
+        @keyframes shake {
+            0%, 90%, 100% { transform: translateX(0); }
+            92% { transform: translateX(-4px); }
+            94% { transform: translateX(4px); }
+            96% { transform: translateX(-2px); }
+            98% { transform: translateX(2px); }
+        }
+        .btn-surprise:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(255,61,61,0.4);
+        }
+        .btn-call {
+            display: block;
+            background: #00d084;
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 800;
+            padding: 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .btn-call:hover {
+            background: #00e090;
+            transform: translateY(-2px);
+        }
+        .btn-text {
+            display: block;
+            background: transparent;
+            border: 2px solid #1e2536;
+            color: #e8ecf0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .btn-text:hover {
+            border-color: #00d084;
+            color: #00d084;
+        }
+        .footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4a5568;
+            font-size: 11px;
+            border-top: 1px solid #1e2536;
+        }
+        .footer a { color: #ff3d3d; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="urgency-bar">
+        🚨 WEEKEND FLASH SALE — ONLY 5 SPOTS — EXPIRES SUNDAY 9PM 🚨
+    </div>
+
+    <div class="hero">
+        <div class="selected-badge">⭐ YOU'VE BEEN SELECTED — TOP 50</div>
+        <h1>Dennis, your <span class="highlight">2024 Kia Telluride</span> has</h1>
+        <span class="equity-highlight">$23,355 IN EQUITY</span>
+        <p class="subtitle">You've been hand-picked from 2,792 customers for an exclusive upgrade offer. This is your equity working FOR you — but it won't last.</p>
+        
+        <div class="stats-row">
+            <div class="stat">
+                <div class="stat-value alert">$23K</div>
+                <div class="stat-label">YOUR EQUITY</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value positive">83</div>
+                <div class="stat-label">LEAD SCORE</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">SPOTS LEFT</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <h2>YOUR UPGRADE</h2>
+        <div class="vehicle-grid">
+            <div class="vehicle-card current">
+                <div class="vehicle-label">CURRENT</div>
+                <div class="vehicle-name">2024 Kia Telluride</div>
+                <div class="vehicle-detail">Paid off · 57K mi</div>
+            </div>
+            <div class="vehicle-card upgrade">
+                <div class="vehicle-label">UPGRADE</div>
+                <div class="vehicle-name upgrade">2027 Telluride EX FWD</div>
+                <div class="vehicle-detail">MSRP $46,835</div>
+            </div>
+        </div>
+
+        <div class="comparison-table">
+            <div class="comp-row">
+                <span class="comp-label">Trade Equity</span>
+                <span class="comp-value green">$23,355</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Monthly Payment</span>
+                <span class="comp-value">$516/mo</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Payments Remaining</span>
+                <span class="comp-value red">0 (PAID OFF)</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Warranty Left</span>
+                <span class="comp-value">23 months</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Sold By</span>
+                <span class="comp-value">Ihab Qadi</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-headline">🎁 Claim Your Surprise</div>
+        <p class="cta-sub">Schedule a 15-min appraisal and we'll show you your real numbers. No obligation. No pressure. Just your upgrade waiting.</p>
+        
+        <div class="btn-grid">
+            <a href="sms:+19548600537?body=Hey Ivan, I'm Dennis Smith. I want to schedule a test drive for the 2027 Telluride. My number is (954) 531-7483. Let's do this!" class="btn-surprise">
+                🎁 SCHEDULE MY SURPRISE
+            </a>
+            <a href="tel:+19548600537" class="btn-call">
+                📞 CALL IVAN NOW — (954) 860-0537
+            </a>
+            <a href="sms:+19548600537?body=Hey Ivan, it's Dennis Smith. Send me details about the Telluride upgrade!" class="btn-text">
+                💬 TEXT ME DETAILS
+            </a>
+        </div>
+
+        <p style="margin-top: 28px; font-size: 12px; color: #4a5568;">
+            ⏰ Offer expires Sunday 9PM<br>
+            Phil Smith Kia — 4250 N Federal Hwy, Lighthouse Point, FL
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>Personalized for <strong>Dennis Smith</strong> · Score 83/100 · Top 50 Selection</p>
+        <p style="margin-top: 6px;">
+            <a href="sms:+19548600537?body=STOP">Opt-out</a> · Phil Smith Kia
+        </p>
+    </div>
+</body>
+</html>
