@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phil Smith Kia — Private Offer for Dennis Smith</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --border: #2a2a2a;
+            --text: #f0f0f0;
+            --muted: #888;
+            --accent: #c8963e;
+            --accent-light: #e0b86c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .top-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align: center;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+        }
+        .top-bar .phone { color: var(--accent); font-weight: 600; }
+
+        /* Hero */
+        .hero {
+            padding: 80px 24px 60px;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            display: block;
+            font-weight: 300;
+            color: var(--muted);
+            font-size: 0.6em;
+            letter-spacing: 0;
+            margin-top: 8px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Equity Display */
+        .equity-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 440px;
+            text-align: center;
+        }
+        .equity-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .equity-amount {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .equity-detail {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        /* Vehicle Section */
+        .vehicles {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+        .vehicle-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .vehicle-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+        .vehicle-box.highlight {
+            border-color: var(--accent);
+        }
+        .vehicle-year {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .vehicle-model {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .vehicle-spec {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        .arrow {
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        /* Specs Grid */
+        .specs {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { color: var(--muted); font-weight: 400; }
+        .spec-value { font-weight: 600; }
+        .spec-value.accent { color: var(--accent); }
+
+        /* CTA Section */
+        .cta {
+            padding: 60px 24px 80px;
+            text-align: center;
+        }
+        .cta-inner {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .cta-sub {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 40px auto;
+            max-width: 400px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 540px) {
+            .vehicle-row { grid-template-columns: 1fr; gap: 12px; }
+            .arrow { transform: rotate(90deg); }
+            .equity-amount { font-size: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>PHIL SMITH KIA</span>
+        <span>(954) 860-0537 · Lighthouse Point, FL</span>
+    </div>
+
+    <div class="hero">
+        <div class="eyebrow">Private Offer · Selected Client</div>
+        <h1>Dennis Smith<span>2024 Kia Telluride Owner</span></h1>
+        <p>Based on your vehicle equity and purchase history, we've prepared a personalized upgrade opportunity available exclusively to you.</p>
+    </div>
+
+    <div class="equity-card">
+        <div class="equity-label">Your Estimated Equity</div>
+        <div class="equity-amount">$23,355</div>
+        <div class="equity-detail">2024 Kia Telluride · Fully Paid Off</div>
+    </div>
+
+    <div class="vehicles">
+        <div class="vehicle-row">
+            <div class="vehicle-box">
+                <div class="vehicle-year">Current Vehicle</div>
+                <div class="vehicle-model">2024 Kia Telluride</div>
+                <div class="vehicle-spec">57K miles · Original sale by Ihab Qadi</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="vehicle-box highlight">
+                <div class="vehicle-year">Recommended Upgrade</div>
+                <div class="vehicle-model">2027 Telluride EX FWD</div>
+                <div class="vehicle-spec">MSRP $46,835 · Monthly est. $516</div>
+            </div>
+        </div>
+
+        <div class="specs">
+            <div class="spec-row">
+                <span class="spec-label">Trade Equity</span>
+                <span class="spec-value accent">$23,355</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Monthly Payment (est.)</span>
+                <span class="spec-value">$516/mo</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Loan Status</span>
+                <span class="spec-value">Paid in Full</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Warranty Remaining</span>
+                <span class="spec-value">23 months</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Lead Score</span>
+                <span class="spec-value">83 / 100</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <div class="cta-inner">
+            <div class="cta-title">Ready to Upgrade?</div>
+            <div class="cta-sub">Schedule a brief consultation at your convenience. No obligation.</div>
+            
+            <a href="tel:+19548600537" class="btn btn-primary">📞 Call Ivan — (954) 860-0537</a>
+            <a href="sms:+19548600537?body=Hi Ivan, I'm Dennis Smith. I'd like to schedule a time to discuss the Telluride upgrade. My number is (954) 531-7483." class="btn btn-secondary">💬 Send a Message</a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+        <p>Prepared exclusively for <strong>Dennis Smith</strong> · Phil Smith Kia</p>
+        <p style="margin-top:8px;">4250 N Federal Hwy, Lighthouse Point, FL 33064</p>
+        <p style="margin-top:12px;font-size:11px;color:#444;">
+            <a href="sms:+19548600537?body=STOP">Unsubscribe</a>
+        </p>
+    </div>
+
+</body>
+</html>
