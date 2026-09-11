@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 URGENT: {FULL_NAME} — You Have ${EQUITY} in Equity</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #080b10;
+            color: #e8ecf0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d1321 100%);
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 3px solid #ff3d3d;
+            position: relative;
+        }
+        .urgency-badge {
+            display: inline-block;
+            background: #ff3d3d;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            line-height: 1.15;
+            margin-bottom: 16px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 .highlight {
+            color: #ff3d3d;
+            font-weight: 900;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #8b95a5;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.5;
+        }
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .proof-item {
+            background: rgba(255,61,61,0.1);
+            border: 1px solid rgba(255,61,61,0.3);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #ff8a8a;
+            font-weight: 600;
+        }
+        .proof-item strong {
+            color: #ff3d3d;
+            font-size: 20px;
+            display: block;
+        }
+        .metrics {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .metrics h2 {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #8b95a5;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .metric-card {
+            background: #131825;
+            border: 1px solid #1e2536;
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .metric-value.positive { color: #00d084; }
+        .metric-value.alert { color: #ff3d3d; }
+        .metric-label {
+            font-size: 12px;
+            color: #8b9525;
+            margin-top: 8px;
+            color: #8b95a5;
+        }
+        .vehicle-panel {
+            padding: 60px 20px;
+            background: #0d1321;
+            border-top: 1px solid #1e2536;
+            border-bottom: 1px solid #1e2536;
+        }
+        .vehicle-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .vehicle-inner { grid-template-columns: 1fr; }
+        }
+        .vehicle-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 12px;
+        }
+        .vehicle-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .vehicle-arrow {
+            font-size: 24px;
+            color: #ff3d3d;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .upgrade-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #00d084;
+        }
+        .comparison-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #1e2536;
+            font-size: 15px;
+        }
+        .comparison-row:last-child { border-bottom: none; }
+        .comparison-label { color: #8b95a5; }
+        .comparison-value { font-weight: 700; color: #fff; }
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #080b10 0%, #1a1f2e 100%);
+        }
+        .cta-headline {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        .cta-sub {
+            font-size: 16px;
+            color: #8b95a5;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .btn-primary {
+            display: block;
+            background: #ff3d3d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 18px 32px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:hover {
+            background: #ff5555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,61,61,0.3);
+        }
+        .btn-secondary {
+            display: block;
+            background: transparent;
+            color: #e8ecf0;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 8px;
+            border: 2px solid #1e2536;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: #ff3d3d;
+            color: #ff3d3d;
+        }
+        .urgency-footer {
+            background: #ff3d3d;
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: #4a5568;
+            font-size: 12px;
+            border-top: 1px solid #1e2536;
+        }
+        .footer a { color: #ff3d3d; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="urgency-footer">
+        🚨 EXCLUSIVE INVITE — THIS WEEKEND ONLY — TOP 50 LEADS SELECTED 🚨
+    </div>
+
+    <div class="hero">
+        <div class="urgency-badge">⚡ END OF SALE: SUNDAY 9PM</div>
+        <h1>{FIRST_NAME}, your <span class="highlight">{CURRENT_VEHICLE}</span> has an estimated <span class="highlight">${EQUITY}</span> in equity.</h1>
+        <p class="subtitle">You've been hand-picked from 2,792 customers for an exclusive upgrade opportunity. Only 5 sales this weekend. Your equity advantage expires soon.</p>
+        
+        <div class="social-proof">
+            <div class="proof-item">
+                <strong>5</strong>
+                Sales Already Locked
+            </div>
+            <div class="proof-item">
+                <strong>TOP 50</strong>
+                Exclusive Selection
+            </div>
+            <div class="proof-item">
+                <strong>${EQUITY}</strong>
+                Your Equity
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <h2>YOUR POSITION</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value alert">${EQUITY}</div>
+                <div class="metric-label">Estimated Trade Equity</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">${CURRENT_PAYMENT}</div>
+                <div class="metric-label">Current Monthly Payment</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value positive">${NEW_PAYMENT}</div>
+                <div class="metric-label">Upgrade Payment</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{SCORE}/100</div>
+                <div class="metric-label">Lead Score</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vehicle-panel">
+        <div class="vehicle-inner">
+            <div>
+                <div class="vehicle-label">CURRENT</div>
+                <div class="vehicle-name">{CURRENT_VEHICLE}</div>
+                <div style="margin-top: 20px; color: #8b95a5; font-size: 14px;">
+                    Est. payoff: ${EST_PAYOFF}<br>
+                    Payments left: {PAYMENTS_LEFT}
+                </div>
+            </div>
+            <div>
+                <div class="vehicle-arrow">⬇️ UPGRADE TO ⬇️</div>
+                <div class="vehicle-label">RECOMMENDED</div>
+                <div class="upgrade-name">{REPLACEMENT_VEHICLE}</div>
+                <div style="margin-top: 20px; color: #8b95a5; font-size: 14px;">
+                    {REPLACEMENT_TRIM}<br>
+                    MSRP: ${REPLACEMENT_MSRP}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
+        <div class="vehicle-panel" style="border-radius: 12px; border: 1px solid #1e2536;">
+            <div class="comparison-row">
+                <span class="comparison-label">Monthly Payment Difference</span>
+                <span class="comparison-value" style="color: #00d084;">+${PAY_DIFF}/mo</span>
+            </div>
+            <div class="comparison-row">
+                <span class="comparison-label">Total Equity Gain</span>
+                <span class="comparison-value" style="color: #ff3d3d;">${EQUITY}</span>
+            </div>
+            <div class="comparison-row">
+                <span class="comparison-label">Deal Maturity</span>
+                <span class="comparison-value">{DEAL_MATURITY}</span>
+            </div>
+            <div class="comparison-row">
+                <span class="comparison-label">Original Salesperson</span>
+                <span class="comparison-value">{SOLD_BY}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-headline">Your Equity Window is Closing</div>
+        <p class="cta-sub">5 appointments already booked this weekend. Don't let someone else take your upgrade. Call now or book online — talk to Ivan directly.</p>
+        
+        <div class="cta-buttons">
+            <a href="tel:19548600537" class="btn-primary">📞 CALL IVAN NOW — (954) 860-0537</a>
+            <a href="sms:19548600537?body=Hey Ivan, I'm interested in the upgrade offer. My name is {FIRST_NAME} {LAST_NAME}" class="btn-secondary">💬 TEXT "YES" TO IVAN</a>
+        </div>
+        
+        <p style="margin-top: 32px; font-size: 13px; color: #4a5568;">
+            ⏰ This offer expires Sunday 9PM. No extensions.<br>
+            Phil Smith Kia — 4250 N Federal Hwy, Lighthouse Point, FL
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>Personalized preview for <strong>{FULL_NAME}</strong> — Sold by {SOLD_BY} · Score {SCORE}/100</p>
+        <p style="margin-top: 8px;">
+            <a href="sms:19548600537?body=STOP">Opt-out</a> · Phil Smith Kia · 4250 N Federal Hwy, Lighthouse Point, FL 33064
+        </p>
+    </div>
+</body>
+</html>
