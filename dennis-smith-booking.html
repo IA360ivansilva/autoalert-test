@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Your Test Drive — Dennis Smith</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #080b10;
+            color: #e8ecf0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            padding: 24px;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 32px 0 24px;
+            border-bottom: 2px solid #ff3d3d;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #8b95a5;
+            font-size: 14px;
+        }
+        .lead-info {
+            background: #131825;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .lead-info h3 {
+            font-size: 12px;
+            color: #8b95a5;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .lead-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #1e2536;
+            font-size: 14px;
+        }
+        .lead-row:last-child { border: none; }
+        .lead-label { color: #8b95a5; }
+        .lead-value { font-weight: 700; }
+        .vehicle-box {
+            background: linear-gradient(135deg, #1a1f2e, #0d1321);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            border: 1px solid #1e2536;
+        }
+        .vehicle-box h4 {
+            color: #8b95a5;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .vehicle-name {
+            font-size: 28px;
+            font-weight: 900;
+            color: #00d084;
+        }
+        .vehicle-msrp {
+            color: #8b95a5;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .schedule-title {
+            font-size: 14px;
+            color: #8b95a5;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .time-btn {
+            background: #131825;
+            border: 1px solid #1e2536;
+            color: #e8ecf0;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .time-btn:hover, .time-btn:active {
+            border-color: #ff3d3d;
+            color: #ff3d3d;
+        }
+        .confirm-btn {
+            display: block;
+            background: #ff3d3d;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s;
+            margin-bottom: 16px;
+        }
+        .confirm-btn:hover {
+            background: #ff5555;
+        }
+        .call-btn {
+            display: block;
+            background: transparent;
+            border: 2px solid #1e2536;
+            color: #e8ecf0;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .call-btn:hover {
+            border-color: #ff3d3d;
+            color: #ff3d3d;
+        }
+        .footer {
+            text-align: center;
+            color: #4a5568;
+            font-size: 12px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #1e2536;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Schedule Your Test Drive</h1>
+            <p>Phil Smith Kia — Lighthouse Point</p>
+        </div>
+
+        <div class="lead-info">
+            <h3>YOUR DETAILS</h3>
+            <div class="lead-row">
+                <span class="lead-label">Name</span>
+                <span class="lead-value">Dennis Smith</span>
+            </div>
+            <div class="lead-row">
+                <span class="lead-label">Current</span>
+                <span class="lead-value">2024 Kia Telluride</span>
+            </div>
+            <div class="lead-row">
+                <span class="lead-label">Equity</span>
+                <span class="lead-value" style="color:#00d084;">$23,355</span>
+            </div>
+            <div class="lead-row">
+                <span class="lead-label">Salesperson</span>
+                <span class="lead-value">Ivan</span>
+            </div>
+        </div>
+
+        <div class="vehicle-box">
+            <h4>TEST DRIVE</h4>
+            <div class="vehicle-name">2027 Kia Telluride EX FWD</div>
+            <div class="vehicle-msrp">MSRP $46,835</div>
+        </div>
+
+        <div class="schedule-title">AVAILABLE TIMES</div>
+        <div class="time-grid">
+            <a href="tel:19548600537" class="time-btn">Today 2:00 PM</a>
+            <a href="tel:19548600537" class="time-btn">Today 4:30 PM</a>
+            <a href="tel:19548600537" class="time-btn">Tomorrow 10AM</a>
+            <a href="tel:19548600537" class="time-btn">Tomorrow 2PM</a>
+            <a href="tel:19548600537" class="time-btn">Sat 11:00 AM</a>
+            <a href="tel:19548600537" class="time-btn">Sat 3:00 PM</a>
+        </div>
+
+        <a href="tel:19548600537" class="confirm-btn">📞 CALL TO CONFIRM — (954) 860-0537</a>
+        <a href="sms:19548600537?body=Hey Ivan, I'm Dennis Smith. I want to schedule a test drive for the 2027 Telluride. What works best for you?" class="call-btn">💬 TEXT IVAN PREFERRED TIME</a>
+
+        <div class="footer">
+            Phil Smith Kia · 4250 N Federal Hwy, Lighthouse Point, FL<br>
+            <a href="sms:19548600537?body=STOP" style="color:#ff3d3d;text-decoration:none;">Opt-out</a>
+        </div>
+    </div>
+</body>
+</html>
