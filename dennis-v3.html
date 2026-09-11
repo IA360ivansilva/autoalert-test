@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIVATE OFFER — Dennis Smith · Phil Smith Kia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --border: #2a2a2a;
+            --text: #f0f0f0;
+            --muted: #888;
+            --accent: #ff3d3d;
+            --gold: #c8963e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Urgency Bar */
+        .urgency-bar {
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 14px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 64px 24px 48px;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+        .hero h1 .gold {
+            color: var(--gold);
+        }
+        .hero p {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
+
+        /* Big Equity Display */
+        .equity-display {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 40px 32px;
+            margin: 0 auto 48px;
+            max-width: 480px;
+            text-align: center;
+            position: relative;
+        }
+        .equity-display::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        .equity-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .equity-amount {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .equity-detail {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+        .equity-note {
+            font-size: 12px;
+            color: var(--accent);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Vehicle Section */
+        .vehicles {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+        }
+        .vehicle-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .vehicle-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+        .vehicle-box.target {
+            border-color: var(--gold);
+        }
+        .vehicle-year {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .vehicle-model {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .vehicle-spec {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .arrow { font-size: 32px; color: var(--accent); }
+
+        /* Specs */
+        .specs {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { color: var(--muted); }
+        .spec-value { font-weight: 700; }
+        .spec-value.gold { color: var(--gold); }
+
+        /* CTA */
+        .cta {
+            padding: 60px 24px 80px;
+            text-align: center;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .cta-sub {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-bottom: 14px;
+            transition: all 0.2s;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 17px;
+        }
+        .btn-primary:hover {
+            background: #ff5555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,61,61,0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 40px auto;
+            max-width: 400px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+        }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 540px) {
+            .vehicle-row { grid-template-columns: 1fr; gap: 12px; }
+            .arrow { transform: rotate(90deg); }
+            .equity-amount { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="urgency-bar">
+        ⏰ WEEKEND FLASH — 5 SPOTS — EXPIRES SUNDAY 9PM
+    </div>
+
+    <div class="hero">
+        <div class="eyebrow">⭐ SELECTED CLIENT · TOP 50</div>
+        <h1>Dennis, your Telluride has <span class="gold">$23,355</span> in equity.</h1>
+        <p>You've been hand-picked from 2,792 customers for an exclusive upgrade. Your equity is real — but it won't wait forever.</p>
+    </div>
+
+    <div class="equity-display">
+        <div class="equity-label">YOUR ESTIMATED EQUITY</div>
+        <div class="equity-amount">$23,355</div>
+        <div class="equity-detail">2024 Kia Telluride · Fully Paid Off</div>
+        <div class="equity-note">⏰ Subject to appraisal verification</div>
+    </div>
+
+    <div class="vehicles">
+        <div class="vehicle-row">
+            <div class="vehicle-box">
+                <div class="vehicle-year">CURRENT</div>
+                <div class="vehicle-model">2024 Kia Telluride</div>
+                <div class="vehicle-spec">57K miles · Paid off · By Ihab Qadi</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="vehicle-box target">
+                <div class="vehicle-year">UPGRADE</div>
+                <div class="vehicle-model">2027 Telluride EX FWD</div>
+                <div class="vehicle-spec">MSRP $46,835 · Est. $516/mo</div>
+            </div>
+        </div>
+
+        <div class="specs">
+            <div class="spec-row">
+                <span class="spec-label">Trade Equity</span>
+                <span class="spec-value gold">$23,355</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Monthly Payment</span>
+                <span class="spec-value">$516/mo</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Loan Status</span>
+                <span class="spec-value">PAID IN FULL</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Warranty Left</span>
+                <span class="spec-value">23 months</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Lead Score</span>
+                <span class="spec-value gold">83 / 100</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <div class="cta-title">Don't Let Someone Else Take Your Upgrade</div>
+        <div class="cta-sub">5 spots already locked this weekend. Schedule your test drive now.</div>
+        
+        <a href="tel:+19548600537" class="btn btn-primary">🔥 CALL IVAN NOW — (954) 860-0537</a>
+        <a href="sms:+19548600537?body=Hey Ivan, I'm Dennis Smith. I want to schedule a test drive for the 2027 Telluride. My number is (954) 531-7483. I'm ready to upgrade!" class="btn btn-secondary">💬 TEXT ME TO SCHEDULE</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+        <p>Personalized for <strong>Dennis Smith</strong> · Score 83/100 · Top 50</p>
+        <p style="margin-top:6px;">4250 N Federal Hwy, Lighthouse Point, FL 33064</p>
+        <p style="margin-top:10px;"><a href="sms:+19548600537?body=STOP">Opt-out</a></p>
+    </div>
+
+</body>
+</html>
