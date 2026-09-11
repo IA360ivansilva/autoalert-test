@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Fiallo — Your $18,730 Equity Opportunity · Phil Smith Kia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #080b10;
+            color: #e8ecf0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Brand Header */
+        .brand-header {
+            background: #0d1117;
+            border-bottom: 2px solid #ff3d3d;
+            padding: 16px 24px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand-logo {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .brand-logo span { color: #ff3d3d; }
+        .brand-sub {
+            font-size: 11px;
+            color: #8b95a5;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+        .brand-phone {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #ff3d3d;
+            font-weight: 700;
+        }
+
+        /* Urgency Bar */
+        .urgency-bar {
+            background: #ff3d3d;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d1321 100%);
+            padding: 48px 20px 40px;
+            text-align: center;
+            border-bottom: 3px solid #ff3d3d;
+        }
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(255,61,61,0.15);
+            color: #ff3d3d;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,61,61,0.3);
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 .highlight { color: #ff3d3d; font-weight: 900; }
+        .subtitle {
+            font-size: 16px;
+            color: #8b95a5;
+            max-width: 500px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+
+        /* Equity Display */
+        .equity-wrap {
+            background: rgba(255,61,61,0.05);
+            border: 1px solid rgba(255,61,61,0.2);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        .equity-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 8px;
+        }
+        .equity-amount {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ff3d3d;
+        }
+        .equity-detail {
+            font-size: 13px;
+            color: #8b95a5;
+            margin-top: 8px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .proof-item {
+            background: rgba(255,61,61,0.08);
+            border: 1px solid rgba(255,61,61,0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #ff8a8a;
+            font-weight: 600;
+            text-align: center;
+        }
+        .proof-item strong {
+            color: #ff3d3d;
+            font-size: 18px;
+            display: block;
+        }
+
+        /* Metrics */
+        .metrics {
+            padding: 48px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .metrics h2 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+        .metric-card {
+            background: #131825;
+            border: 1px solid #1e2536;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .metric-value.positive { color: #00d084; }
+        .metric-value.alert { color: #ff3d3d; }
+        .metric-label {
+            font-size: 11px;
+            color: #8b95a5;
+            margin-top: 6px;
+        }
+
+        /* Vehicle Panel */
+        .vehicle-panel {
+            padding: 48px 20px;
+            background: #0d1321;
+            border-top: 1px solid #1e2536;
+        }
+        .vehicle-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+        @media (max-width: 600px) {
+            .vehicle-inner { grid-template-columns: 1fr; gap: 12px; }
+            .vehicle-arrow { transform: rotate(90deg); }
+        }
+        .vehicle-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #8b95a5;
+            margin-bottom: 8px;
+        }
+        .vehicle-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .vehicle-arrow {
+            font-size: 24px;
+            color: #ff3d3d;
+            text-align: center;
+        }
+        .upgrade-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #00d084;
+        }
+        .vehicle-detail {
+            margin-top: 12px;
+            color: #8b95a5;
+            font-size: 13px;
+        }
+
+        /* Comparison */
+        .comparison {
+            max-width: 500px;
+            margin: 32px auto 0;
+            background: #131825;
+            border-radius: 10px;
+            border: 1px solid #1e2536;
+            overflow: hidden;
+        }
+        .comp-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid #1e2536;
+            font-size: 14px;
+        }
+        .comp-row:last-child { border-bottom: none; }
+        .comp-label { color: #8b95a5; }
+        .comp-value { font-weight: 700; color: #fff; }
+        .comp-value.green { color: #00d084; }
+        .comp-value.red { color: #ff3d3d; }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #080b10 0%, #1a1f2e 100%);
+        }
+        .cta-headline {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        .cta-sub {
+            font-size: 15px;
+            color: #8b95a5;
+            margin-bottom: 32px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 18px 24px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #ff3d3d;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #ff5555;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,61,61,0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #e8ecf0;
+            border: 2px solid #1e2536;
+        }
+        .btn-secondary:hover {
+            border-color: #00d084;
+            color: #00d084;
+        }
+        .btn-schedule {
+            background: #00d084;
+            color: #000;
+        }
+        .btn-schedule:hover {
+            background: #00e090;
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4a5568;
+            font-size: 11px;
+            border-top: 1px solid #1e2536;
+        }
+        .footer a { color: #ff3d3d; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Brand Header -->
+    <div class="brand-header">
+        <div class="brand-logo">PHIL SMITH <span>KIA</span></div>
+        <div class="brand-sub">4250 N Federal Hwy · Lighthouse Point, FL 33064</div>
+        <div class="brand-phone">(954) 860-0537</div>
+    </div>
+
+    <div class="urgency-bar">
+        🚨 EXCLUSIVE INVITE — THIS WEEKEND ONLY — TOP 50 LEADS SELECTED 🚨
+    </div>
+
+    <div class="hero">
+        <div class="urgency-badge">⚡ END OF SALE: SUNDAY 9PM</div>
+        <h1>David, your <span class="highlight">2021 Kia Sorento</span> has an estimated <span class="highlight">$18,730</span> in equity.</h1>
+        <p class="subtitle">You've been hand-picked from 2,792 customers for an exclusive upgrade opportunity. Only 5 sales this weekend. Your equity advantage expires soon.</p>
+        
+        <div class="equity-wrap">
+            <div class="equity-label">YOUR ESTIMATED EQUITY</div>
+            <div class="equity-amount">$18,730</div>
+            <div class="equity-detail">Subject to live appraisal</div>
+        </div>
+
+        <div class="social-proof">
+            <div class="proof-item"><strong>5</strong>Spots Left</div>
+            <div class="proof-item"><strong>TOP 50</strong>Selected</div>
+            <div class="proof-item"><strong>91/100</strong>Lead Score</div>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <h2>YOUR NUMBERS</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value alert">$18,730</div>
+                <div class="metric-label">Trade Equity</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$0</div>
+                <div class="metric-label">Current Payment</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value positive">$516</div>
+                <div class="metric-label">Est. New Payment</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">23 mo</div>
+                <div class="metric-label">Warranty Left</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vehicle-panel">
+        <div class="vehicle-inner">
+            <div>
+                <div class="vehicle-label">CURRENT VEHICLE</div>
+                <div class="vehicle-name">2021 Kia Sorento</div>
+                <div class="vehicle-detail">Est. payoff: $0<br>Payments remaining: 0</div>
+            </div>
+            <div class="vehicle-arrow">→</div>
+            <div>
+                <div class="vehicle-label">RECOMMENDED UPGRADE</div>
+                <div class="upgrade-name">2026 Kia Sorento</div>
+                <div class="vehicle-detail">MSRP: $46,835<br>Monthly est.: $516</div>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="comp-row">
+                <span class="comp-label">Monthly Payment Difference</span>
+                <span class="comp-value green">+$516/mo</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Total Equity</span>
+                <span class="comp-value red">$18,730</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Deal Maturity</span>
+                <span class="comp-value">06/30/2023</span>
+            </div>
+            <div class="comp-row">
+                <span class="comp-label">Original Salesperson</span>
+                <span class="comp-value">Ihab Qadi</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-headline">Your Equity Window is Closing</div>
+        <p class="cta-sub">5 spots already locked this weekend. Schedule your test drive now and lock in your equity advantage.</p>
+        
+        <div class="cta-buttons">
+            <a href="sms:+19548600537?body=Hey Ivan, I'm David Fiallo and I want to schedule a test drive for the 2027 Telluride. My number is (561) 702-4228. I'm ready to upgrade!" class="btn btn-primary">
+                📅 SCHEDULE MY TEST DRIVE
+            </a>
+            <a href="tel:+19548600537" class="btn btn-secondary">📞 CALL IVAN — (954) 860-0537</a>
+            <a href="sms:+19548600537?body=Hey Ivan, I'm David Fiallo — send me more info about the Telluride upgrade." class="btn btn-secondary">💬 SEND ME INFO</a>
+        </div>
+        
+        <p class="cta-note">
+            ⏰ This offer expires Sunday 9PM.<br>
+            Phil Smith Kia — 4250 N Federal Hwy, Lighthouse Point, FL
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>Personalized preview for <strong>David Fiallo</strong> — Sold by Ihab Qadi · Score 91/100</p>
+        <p style="margin-top: 6px;">
+            <a href="sms:+19548600537?body=STOP">Opt-out</a> · Phil Smith Kia · 4250 N Federal Hwy, Lighthouse Point, FL 33064
+        </p>
+    </div>
+
+</body>
+</html>
